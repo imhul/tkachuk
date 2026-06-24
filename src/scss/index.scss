@@ -1,0 +1,27 @@
+/* common */
+@use 'root';
+@use 'normalize';
+@use 'base';
+@use 'keyframes';
+
+/* pages */
+@use './pages/home';
+@use './pages/folio';
+@use './pages/folio-landscape';
+@use './pages/folio-portrait';
+@use './pages/game';
+@use './pages/loading';
+
+/* tabs */
+@use './pages/intro';
+@use './pages/roadmap';
+@use './pages/works';
+@use './pages/contact';
+
+/* components */
+@use './components/progress';
+@use './components/stats';
+@use './components/toolbar';
+@use './components/howto';
+@use './components/menu';
+@use './components/captcha';

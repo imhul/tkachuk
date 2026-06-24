@@ -1,0 +1,118 @@
+/* Home page */
+@use "../mixins" as *;
+@use "sass:math";
+
+.Home {
+    height: rem(280);
+    top: 50%;
+    left: 50%;
+    display: table;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    @media (max-width: $media-small) {
+        max-width: rem(290);
+    }
+
+    @media (max-width: $media-small) and (orientation: landscape) {
+        max-width: rem(270);
+        height: 0;
+    }
+
+    @media (min-width: $media-medium-min) {
+        max-width: rem(420);
+    }
+
+    @media (min-width: $media-large-min) {
+        max-width: rem(560);
+    }
+
+    .heading-hero {
+        color: var(--color-white);
+        font-size: 3.8rem;
+        line-height: 1.1;
+        opacity: 0;
+        margin: 0;
+        transform: scale(0.6);
+        transition: all ease-in 0.5s;
+        transition-delay: 0ms !important;
+        cursor: pointer;
+        white-space: break-spaces;
+
+        @media (max-width: $media-small) {
+            margin-left: rem(20);
+        }
+
+        @media (min-width: $media-medium-min) {
+            font-size: rem(96);
+            line-height: 1;
+        }
+
+        @media (min-width: $media-large-min) {
+            font-size: rem(128);
+            line-height: 1;
+        }
+
+        @media (max-width: $media-small) and (orientation: landscape) {
+            display: table-footer-group;
+        }
+
+        &:hover {
+            text-shadow: 0;
+
+            .icon-lamp {
+                color: var(--color-secondary);
+                text-shadow: 0 0 rem(20) var(--color-secondary);
+            }
+        }
+
+        /* Hero animation */
+        @for $i from 0 through 15 {
+            $rondom-angle: math.random(360);
+            $rondom-translate: math.random(6) * 0.38;
+            $opacity: math.random(9);
+            $shadow: math.random(12);
+
+            .span-#{$i} {
+                opacity: #{"0." + $opacity};
+                text-shadow: 0 0 #{$shadow}px var(--color-white);
+                color: rgb(188 200 206 / 100%);
+                display: inline-block;
+                animation:
+                    rotate #{$rondom-translate}s ease-in 2,
+                    stop #{$rondom-translate}s ease-out;
+                transition: transform #{$rondom-translate}s;
+
+                @media (max-width: $media-small) {
+                    transform: rotate(0deg);
+                    animation: none;
+                }
+
+                .icon-lamp {
+                    line-height: 1;
+                    top: rem(8);
+                    transition: all 1.6s ease;
+
+                    @media (max-width: $media-small) {
+                        color: var(--color-secondary);
+                        text-shadow: 0 0 rem(20) var(--color-secondary);
+                    }
+                }
+            }
+
+            .span-15 {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.ant-drawer.cookies-modal {
+    .ant-drawer-content-wrapper {
+        height: rem(180) !important;
+
+        @media (min-width: $min-width-medium) {
+            height: rem(150) !important;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+/* HowTo Component */
+@use "../mixins" as *;
+@use "../fragments" as *;
+
+.HowTo {
+    @extend %flex-center;
+
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: rem(20);
+
+    & > * {
+        margin-bottom: rem(20);
+    }
+
+    button.ant-btn.ant-btn-circle {
+        &:not(:disabled):hover {
+            box-shadow: 0 0 rem(30) var(--color-white);
+        }
+    }
+}

@@ -1,0 +1,116 @@
+/* Works */
+@use "../mixins" as *;
+
+.Works {
+    margin: rem(50) auto !important;
+
+    .helper {
+        height: rem(50);
+    }
+
+    .ant-list-bordered {
+        border: none;
+    }
+
+    .ant-list {
+        color: var(--color-white);
+
+        .ant-list-header {
+            background-color: var(--color-black);
+            border-top-right-radius: rem(4);
+            border-top-left-radius: rem(4);
+            font-weight: 100;
+            font-size: rem(18);
+
+            .ant-row {
+                & > div {
+                    margin: 0;
+                }
+            }
+        }
+
+        .ant-list-footer {
+            background-color: var(--color-black);
+            border-bottom-right-radius: rem(4);
+            border-bottom-left-radius: rem(4);
+            font-weight: 100;
+
+            h2 {
+                color: var(--color-white);
+                font-weight: 100;
+            }
+
+            a {
+                color: var(--color-secondary);
+
+                &:hover {
+                    text-shadow: 0 0 rem(2) var(--color-secondary);
+                }
+            }
+        }
+
+        .ant-spin-nested-loading {
+            margin: 0;
+
+            .ant-spin-container {
+                .link {
+                    text-decoration: none;
+                    color: var(--color-white);
+
+                    .ant-list-item {
+                        margin: 0;
+                        border-bottom: rem(1) solid var(--color-white);
+
+                        &:hover {
+                            * {
+                                color: var(
+                                    --color-secondary
+                                ) !important;
+                            }
+                        }
+
+                        .ant-list-item-meta {
+                            align-items: center;
+                        }
+
+                        .ant-list-item-meta-content {
+                            font-size: rem(18);
+                            line-height: 0;
+                            margin-top: 0;
+                            align-items: center;
+
+                            i {
+                                font-size: rem(24);
+
+                                @media only screen and (max-width: $media-small) {
+                                    margin: rem(20) rem(20) 0;
+                                }
+                            }
+
+                            .ant-list-item-meta-title {
+                                color: var(--color-white) !important;
+                                font-size: rem(18);
+
+                                @media only screen and (max-width: $media-x-small) {
+                                    font-size: 6vw;
+                                    line-height: 6vw;
+                                }
+                            }
+
+                            .ant-list-item-meta-description {
+                                color: var(--color-white);
+                            }
+
+                            .ant-list-item-meta-avatar {
+                                .ant-avatar {
+                                    width: rem(50);
+                                    height: rem(50);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

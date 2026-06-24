@@ -1,0 +1,17 @@
+/.git
+/.cache
+/.parcel-cache
+/back
+/src/utils/info.html
+/playgrounds
+*.mongodb.js
+.env
+.env.dev
+.env.prod
+.parcel-cache
+.cache
+dev
+dist
+build
+node_modules
+parcel-bundle-reports

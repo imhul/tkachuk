@@ -1,0 +1,96 @@
+/* Folio page: landscape orientation */
+@use "../mixins" as *;
+
+@media only screen and (orientation: landscape) {
+    .Folio {
+        /* Collapse */
+
+        /* not active */
+        .ant-collapse {
+            background-color: var(--transparent);
+            border: 0;
+            border-radius: 0;
+
+            & * {
+                transition: height 0.3s
+                    cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.3s;
+            }
+
+            &.active {
+                .ant-collapse-item {
+                    height: 10vh;
+
+                    &.ant-collapse-item-active {
+                        height: 70vh;
+                    }
+
+                    .ant-collapse-header {
+                        height: 10vh;
+
+                        // iPhones
+                        @media only screen and (max-width: $media-medium-max) {
+                            height: 10vh;
+                            padding: 0 0 0 rem(12);
+                        }
+
+                        .bg {
+                            & > div {
+                                .anticon {
+                                    font-size: 6vh;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ant-collapse-item {
+                border-bottom-color: var(--color-white);
+                height: 25vh;
+
+                .ant-collapse-header {
+                    height: 25vh;
+                    font-size: 18vh;
+                    color: var(--color-white);
+                }
+
+                /* Static content styles */
+                .ant-collapse-content {
+                    font-size: rem(18);
+
+                    .content {
+                        max-width: rem(600);
+                        width: 80%;
+                        margin: 0 auto;
+                        color: var(--color-white);
+                    }
+                }
+            }
+
+            /* active content section */
+            .ant-collapse-item-active {
+                height: 10vh;
+
+                .ant-collapse-header {
+                    height: 10vh;
+                    font-size: 8vh;
+
+                    .bg {
+                        & > div {
+                            .anticon {
+                                font-size: 6vh;
+                            }
+                        }
+                    }
+                }
+
+                /* active content */
+                .ant-collapse-content-active {
+                    min-height: 60vh;
+                    max-height: 60vh;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,147 @@
+/* Contact Component */
+@use "../mixins" as *;
+@use "../fragments" as *;
+
+.Contact {
+    margin: rem(50) auto !important;
+    height: 100%;
+
+    @media only screen and (max-width: $media-x-small) {
+        font-size: 6vw;
+    }
+
+    .ant-row {
+        margin-bottom: rem(20);
+
+        .g-recaptcha {
+            min-height: 40vh;
+            z-index: 11;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .contact-form {
+        min-height: rem(350);
+        padding: rem(20);
+        border-radius: rem(4);
+        border: rem(1) solid var(--color-white);
+
+        .ant-radio-group {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: flex-start;
+
+            label {
+                @extend %flex-center;
+
+                padding: 0 rem(5);
+                background: var(--transparent);
+                border-color: var(--transparent);
+                color: var(--color-white);
+
+                .anticon {
+                    color: var(--color-white);
+                }
+
+                &:hover {
+                    color: var(--color-secondary);
+                    background: var(--transparent);
+                    border-color: var(--transparent);
+
+                    .anticon {
+                        color: var(--color-secondary);
+                    }
+                }
+
+                &::before {
+                    display: none;
+                }
+
+                &.ant-radio-button-wrapper-checked {
+                    background: var(--transparent);
+                    border-color: var(--transparent);
+                    color: var(--color-secondary);
+
+                    .anticon {
+                        color: var(--color-secondary);
+                    }
+
+                    &:hover {
+                        color: var(--color-white);
+                        background: var(--transparent);
+                        border-color: var(--transparent);
+
+                        .anticon {
+                            color: var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        .ant-statistic-content {
+            color: var(--color-white);
+        }
+
+        h2 {
+            i {
+                font-size: rem(26);
+            }
+        }
+    }
+
+    p {
+        margin: rem(20) 0;
+        display: inline-block;
+        text-align: center;
+    }
+
+    h2 {
+        color: var(--color-white);
+    }
+
+    .link {
+        color: var(--color-secondary);
+    }
+
+    .left,
+    .right {
+        button {
+            width: 100%;
+            margin: auto;
+        }
+    }
+}
+
+.shape {
+    background-color: #2f4d5c;
+
+    &-default {
+        box-shadow:
+            4px -5px 10px #7593a2,
+            -5px 4px 10px #001b2a;
+    }
+
+    &-active {
+        box-shadow:
+            inset 4px -5px 10px #4d6b7a,
+            inset -5px 4px 10px #254352;
+    }
+
+    &-focused {
+        background: linear-gradient(36, #072534, #001120);
+        box-shadow:
+            4px -5px 10px #7593a2,
+            -5px 4px 10px #001b2a;
+    }
+
+    &-disabled {
+        background: linear-gradient(36, #001120, #072534);
+        box-shadow:
+            4px -5px 10px #7593a2,
+            -5px 4px 10px #001b2a;
+    }
+}

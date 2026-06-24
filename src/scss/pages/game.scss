@@ -1,0 +1,93 @@
+/* Game page */
+@use "../mixins" as *;
+
+.Game {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background-color: var(--color-content-bg);
+    overflow: hidden auto;
+
+    @media (max-width: $media-small) {
+        align-items: flex-start;
+        height: max-content;
+        min-height: 150%;
+        margin-top: rem(60);
+    }
+
+    @media only screen and (orientation: landscape) and (max-width: $media-small) {
+        min-height: calc(100vh + 100%);
+    }
+
+    .container {
+        height: 100%;
+
+        .game-logo {
+            display: block;
+            margin: rem(140) auto rem(60);
+        }
+
+        .ant-row {
+            .ant-col {
+                p,
+                span,
+                h1,
+                h2,
+                a {
+                    font-family: monospace;
+                    color: var(--color-white);
+                }
+
+                a {
+                    font-size: rem(20);
+                    color: var(--color-secondary);
+
+                    &:hover {
+                        color: var(--color-white);
+
+                        span {
+                            color: var(--color-white);
+                        }
+                    }
+
+                    span {
+                        font-size: rem(20);
+                        color: var(--color-secondary);
+                    }
+                }
+
+                .mobile-reverse {
+                    display: flex;
+                    flex-direction: column;
+
+                    @media (max-width: $media-small) {
+                        flex-direction: column-reverse;
+                    }
+                }
+            }
+        }
+
+        .preview-wrapper {
+            padding: 0 0 rem(100);
+            background-color: transparent !important;
+
+            @media (max-width: $media-small) {
+                height: rem(380);
+                margin-top: rem(40);
+            }
+
+            .preview {
+                width: 100%;
+                border: none;
+            }
+
+            img {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+[context.production]
+environment = { NODE_VERSION = "20" }
+[build]
+functions = "functions"

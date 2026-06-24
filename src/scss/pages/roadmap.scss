@@ -1,0 +1,62 @@
+/* Roadmap */
+@use "../mixins" as *;
+
+.Roadmap {
+    margin: rem(50) auto !important;
+
+    & * + * {
+        margin-top: 0;
+    }
+
+    .ant-timeline-alternate {
+        list-style: none;
+
+        .ant-timeline-item {
+            list-style: none;
+
+            a {
+                color: var(--color-secondary);
+                text-decoration: none;
+            }
+
+            span {
+                font-weight: 600;
+                color: var(--color-white);
+            }
+
+            .ant-timeline-item-tail {
+                border-left-color: var(--color-timeline-icon-bg);
+            }
+
+            .ant-timeline-item-head {
+                background-color: var(--color-primary);
+                border-color: var(--color-secondary);
+            }
+
+            .ant-timeline-item-content {
+                color: var(--color-white);
+                font-size: 2vw;
+                word-break: normal;
+
+                @media only screen and (max-width: $media-x-small) {
+                    font-size: 6vw;
+                }
+
+                & > span {
+                    & > span {
+                        color: var(--color-secondary);
+                    }
+                }
+            }
+        }
+
+        .ant-timeline-item-pending {
+            margin-top: rem(15);
+
+            .ant-timeline-item-head-custom {
+                background-color: var(--transparent);
+                color: var(--color-secondary);
+            }
+        }
+    }
+}

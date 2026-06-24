@@ -1,0 +1,84 @@
+@use "./mixins" as *;
+
+%svg-transition-fix {
+    svg {
+        transition:
+            color 0s,
+            transform 0.35s !important;
+
+        path {
+            transition:
+                color 0s,
+                transform 0.35s !important;
+        }
+    }
+}
+
+%scrollbar {
+    &::-webkit-scrollbar {
+        background-color: var(--transparent);
+    }
+
+    &::-webkit-scrollbar-button {
+        background-color: var(--transparent);
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: var(--transparent);
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background-color: var(--transparent);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary);
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: var(--transparent);
+    }
+
+    &::-webkit-resizer {
+        background-color: var(--transparent);
+    }
+}
+
+%context-menu {
+    box-shadow: 0 0 rem(20) var(--color-white);
+
+    &.react-contextmenu--visible {
+        min-width: rem(135);
+        background-color: var(--color-primary);
+
+        .react-contextmenu-item {
+            color: var(--color-white);
+            padding: rem(10) rem(20);
+
+            a {
+                color: var(--color-white);
+            }
+
+            &:hover {
+                background-color: var(--color-footer);
+                color: var(--color-secondary);
+
+                a {
+                    color: var(--color-secondary);
+                }
+            }
+        }
+    }
+}
+
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
