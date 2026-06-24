@@ -6,7 +6,7 @@
 
 Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-redux) and [`Parcel Bundler`](https://parceljs.org)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a97b61a9-ab0f-478c-9bd0-f2127ed3f869/deploy-status)](https://app.netlify.com/sites/weblogic/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dc73725a-6b6a-4ae8-bbf5-8d1c78ac3f39/deploy-status)](https://app.netlify.com/projects/tkachuk-zakhar/deploys)
 
 **What's inside?**
 
