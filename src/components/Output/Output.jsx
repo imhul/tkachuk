@@ -20,14 +20,12 @@ import Home from '../Pages/Home';
 import Notify from '../Notify';
 // hooks
 import useInitialization from '../../hooks/useInitialization';
-import useLang from '../../hooks/useLang';
 
 
 const { Content } = Layout;
 
 const Output = () => {
     useInitialization();
-    useLang();
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -6,7 +6,7 @@ import '../../../images/print.png';
 import '../../../images/logo.png';
 
 const Home = memo(() => {
-    const { safe, hero, heroStyle, lang } = useSelector(
+    const { hero, heroStyle, lang } = useSelector(
         state => state.ui
     );
     const dispatch = useDispatch();

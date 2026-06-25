@@ -16,7 +16,7 @@ import {
 const { Panel } = Collapse;
 
 const Folio = memo(() => {
-    const { safe, active, lang } = useSelector(s => s.ui);
+    const { active, lang } = useSelector(s => s.ui);
     const dispatch = useDispatch();
     const renderTexts = [
         {
@@ -55,10 +55,6 @@ const Folio = memo(() => {
 
     return (
         <div className="Folio" tabIndex="1">
-            {/* <Helmet>
-                <title>My Portfolio</title>
-                <link rel="canonical" href={safe.base} />
-            </Helmet> */}
             <Collapse
                 accordion
                 destroyOnHidden

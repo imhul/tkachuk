@@ -10,7 +10,6 @@ export const initStateUI = {
     trelloModalVisible: false,
     lang: 'english',
     isUserLangSelected: false,
-    authFormType: '', // login | reg | forgot | change_pass
     tgMessage: '',
     isContactFormFilled: false,
     isFuturesOpen: false,

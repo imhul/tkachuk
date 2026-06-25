@@ -10,7 +10,6 @@ import {
 import { Button } from 'antd';
 import translate from '../../utils/translations';
 import { NOTIFY_OPTIONS } from '../../utils/config';
-import useSafe from '../../hooks/useSafe';
 
 const env = import.meta.env;
 const mCode = String(env?.VITE_REACT_APP_M_CODE) || '';

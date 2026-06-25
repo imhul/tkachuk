@@ -15,7 +15,7 @@ import "github-markdown-css/github-markdown.css"
 
 const Game = memo(() => {
     const [readme, setReadme] = useState('');
-    const { safe, lang } = useSelector(s => s.ui);
+    const { lang } = useSelector(s => s.ui);
     const title = translate(lang, 'game_title');
 
     useEffect(() => {
@@ -29,10 +29,6 @@ const Game = memo(() => {
     }, []);
 
     return (<>
-        {/* <Helmet>
-            <title>{title}</title>
-            <link rel="canonical" href={safe.base} />
-        </Helmet> */}
         <div className="Game">
             <div className="container">
                 <img src={gameLogoUrl} alt="Chicken Hell Logo" width="400" className="game-logo" />
