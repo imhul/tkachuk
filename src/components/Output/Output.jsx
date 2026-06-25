@@ -17,66 +17,22 @@ import Toolbar from '../Toolbar';
 import HowTo from '../HowTo';
 import Stats from '../Stats';
 import Home from '../Pages/Home';
-import Folio from '../Pages/Folio';
-import Loading from '../Pages/Loading';
-import Game from '../Pages/Game';
 import Notify from '../Notify';
 // hooks
 import useInitialization from '../../hooks/useInitialization';
-import useSafe from '../../hooks/useSafe';
-import useIpify from '../../hooks/useIpify';
 import useLang from '../../hooks/useLang';
-// just for demo
-// import useAllUsers from '../../hooks/useAllUsers';
-// import useCookies from '../../hooks/useCookies';
-// import useTip from '../../hooks/useTip';
+
 
 const { Content } = Layout;
 
-const Page = ({ location }) => {
-    switch (location) {
-        case 'Home':
-            return <Home />;
-        case 'Game':
-            return <Game />;
-        case 'Folio':
-            return <Folio />;
-        case 'Loading':
-            return <Loading />;
-        default:
-            return <Loading />;
-    }
-};
-
 const Output = () => {
     useInitialization();
-    useSafe();
-    const { safe, location } = useSelector(s => s.ui);
-    useIpify(safe);
     useLang();
-    // just for demo
-    // useTip();
-    // useAllUsers();
-    // useCookies();
-
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (window) window.dispatchEvent(new Event("resize"));
     });
-
-    useEffect(() => {
-        // just for demo
-        if (location === 'Loading') {
-            const timer = setTimeout(() => {
-                dispatch({
-                    type: 'SET_LOCATION',
-                    payload: 'Home'
-                });
-                clearTimeout(timer);
-            }, 2000);
-        }
-    }, [location]);
 
     const navigate = key => {
         dispatch({
@@ -87,18 +43,16 @@ const Output = () => {
 
     return (
         <Layout className="LayoutMain">
-            {location === 'Home' ? (
-                <Portal>
+            <Portal>
                     <Stats />
                     <HowTo />
                     <Notify />
                 </Portal>
-            ) : null}
-            {location !== 'Loading' ? <Toolbar key={0} /> : null}
+           <Toolbar key={0} />
             <ContextMenuTrigger id="context-menu">
                 <Layout className="Main">
                     <Content>
-                        <Page location={location} />
+                        <Home />
                     </Content>
                 </Layout>
             </ContextMenuTrigger>

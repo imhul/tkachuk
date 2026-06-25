@@ -2,7 +2,7 @@
 
 ### by Tkachuk Zakhar
 
-### [`*** Run in ***`](https://weblogic.netlify.app/)
+### [`*** Run in ***`](https://tkachuk-zakhar.netlify.app/)
 
 Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-redux) and [`Parcel Bundler`](https://parceljs.org)
 
@@ -36,4 +36,4 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
     -   supabase API
     -   feathersjs + private server
 
-Try the published app [here](https://weblogic.netlify.app/) or [here](https://weblogic-ukraine.pp.ua/)
+Try the published app [here](https://tkachuk-zakhar.netlify.app/)

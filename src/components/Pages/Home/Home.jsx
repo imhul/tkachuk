@@ -1,8 +1,6 @@
 // core
 import React, { memo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// components
-import CookiesModal from '../../CookiesModal';
 // assets
 import '../../../images/print.png';
 import '../../../images/logo.png';
@@ -32,13 +30,6 @@ const Home = memo(() => {
         };
     }, []);
 
-    const goFolio = () => {
-        dispatch({
-            type: 'SET_LOCATION',
-            payload: 'Folio'
-        });
-    };
-
     const renderHero = hero[lang].map((symbol, index) => {
         return (
             <span key={index} className={`span-${index}`}>
@@ -49,14 +40,7 @@ const Home = memo(() => {
 
     return (
         <>
-            <div className="Home" onClick={goFolio}>
-                {/* <Helmet>
-                    <title>WebLogic Studio Home</title>
-                    {safe && (
-                        <link rel="canonical" href={safe.base} />
-                    )}
-                </Helmet> */}
-
+            <div className="Home">
                 <h1
                     className="mobile-fix heading-hero"
                     style={heroStyle}
@@ -67,7 +51,6 @@ const Home = memo(() => {
                     </span>
                 </h1>
             </div>
-            <CookiesModal />
         </>
     );
 });

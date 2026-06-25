@@ -1,14 +1,14 @@
 export const microdata = {
     '@context': 'http://www.schema.org',
     '@type': ['WebPage'],
-    name: 'WebLogic Studio',
-    url: 'https://weblogic.netlify.app/',
+    name: 'Tkachuk Zakhar',
+    url: 'https://tkachuk-zakhar.netlify.app/',
     inLanguage: 'en-US',
-    mainEntityOfPage: 'https://weblogic.netlify.app/',
+    mainEntityOfPage: 'https://tkachuk-zakhar.netlify.app/',
     logo: '/app/logo.png',
     image: '/app/print.png',
     description:
-        'WebLogic Studio - Website development and creation, as well as SEO optimization and website promotion in Kiev',
+        'Tkachuk Zakhar - Senior Web Engineer and Game Developer - Official Portfolio Page.',
     address: {
         '@type': 'PostalAddress',
         addressLocality: 'Kiyv',
@@ -25,7 +25,7 @@ export const microdata = {
     aggregateRating: {
         '@context': 'http://www.schema.org',
         '@type': 'aggregateRating',
-        name: 'WebLogic Studio Rating',
+        name: 'Tkachuk Zakhar Rating',
         reviewCount: 439,
         ratingValue: 91,
         bestRating: 100,
