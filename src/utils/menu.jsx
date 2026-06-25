@@ -1,38 +1,47 @@
 import React from 'react';
 import {
+    UserOutlined,
+    BankOutlined,
     HomeOutlined,
     CrownOutlined,
     GithubOutlined,
-    ExperimentOutlined
+    ExperimentOutlined,
+    InfoCircleOutlined,
 } from '@ant-design/icons';
 // utils
 import { GITHUB_PAGE } from './config';
 
+
 const menu = [
     {
-        key: 'Home',
-        url: '/',
+        key: 'home-projects',
+        label: 'Home Projects',
         icon: <HomeOutlined />,
-        isBlank: false
+        children: [],
     },
     {
-        key: 'Game',
-        url: '/game',
-        icon: <CrownOutlined />,
-        isBlank: false
+        key: 'commercial-projects',
+        label: 'Commercial Projects',
+        icon: <BankOutlined />,
+        children: [],
     },
     {
-        key: 'Folio',
-        url: '/folio',
+        key: 'technologies',
+        label: 'Technologies',
         icon: <ExperimentOutlined />,
-        isBlank: false
+        children: [],
     },
     {
-        key: 'Github',
-        url: GITHUB_PAGE,
-        icon: <GithubOutlined />,
-        isBlank: true
-    }
-];
+        key: 'contacts',
+        label: 'Contacts',
+        icon: <UserOutlined />,
+        children: [],
+    },
+    {
+        key: 'about',
+        label: 'About',
+        icon: <InfoCircleOutlined />,
+    },
+]
 
-export default menu;
+export default menu

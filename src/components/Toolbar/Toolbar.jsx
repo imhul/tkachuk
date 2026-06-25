@@ -36,13 +36,11 @@ const Toolbar = memo(() => {
     const { lang, isMenuOpen } = useSelector(s => s.ui);
     const dispatch = useDispatch();
 
-    const menuItems = menu
-        .filter(item => !item.isBlank)
-        .map(item => ({
-            key: item.key,
-            icon: item.icon,
-            label: <span>{item.key}</span>
-        }));
+    const menuItems = menu.map(item => ({
+        key: item.key,
+        icon: item.icon,
+        label: <span>{item.key}</span>,
+    }));
 
     return (
         <div className="Toolbar">
@@ -58,21 +56,19 @@ const Toolbar = memo(() => {
 
             <Drawer
                 size={320}
+                open={isMenuOpen}
+                styles={{ body: { paddingBottom: 80 } }}
+                closeIcon={<CloseCircleOutlined style={{ fontSize: 32 }} />}
                 onClose={() =>
                     dispatch({
                         type: 'TOGGLE_TOOLBAR',
                         payload: false
                     })
                 }
-                closeIcon={
-                    <CloseCircleOutlined style={{ fontSize: 32 }} />
-                }
-                open={isMenuOpen}
-                styles={{ body: { paddingBottom: 80 } }}
             >
                 <Divider>{translate(lang, 'menu_heading')}</Divider>
                 <Menu
-                    mode="inline"
+                    mode="vertical"
                     items={menuItems}
                 />
 
@@ -91,6 +87,7 @@ const Toolbar = memo(() => {
                         });
                     }}
                 />
+
                 <Divider>Donate</Divider>
                 <Card type="inner">
                     You can buy me a ☕{' '}
