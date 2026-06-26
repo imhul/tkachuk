@@ -3,7 +3,7 @@ import { useEffect } from "react"
 // utils
 import "../../utils/bg"
 import JsonLd from "../../utils/microdata"
-import menu from "../../utils/menu"
+import menu from "../Toolbar/Menu"
 // components
 import { Layout } from "antd"
 import Portal from "../Portal"

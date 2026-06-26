@@ -1,4 +1,6 @@
 import React from "react"
+// components
+import { Card, Menu } from "antd"
 import {
     UserOutlined,
     BankOutlined,
@@ -9,8 +11,8 @@ import {
     InfoCircleOutlined
 } from "@ant-design/icons"
 // utils
-import { GITHUB_PAGE } from "./config"
-import { technologies } from "./technologies"
+import { GITHUB_PAGE } from "../../utils/config"
+import { technologies } from "../../utils/technologies"
 
 const techCategories = Object.keys(technologies)
 
@@ -86,8 +88,49 @@ const menu = [
     {
         key: "about",
         label: "About",
-        icon: <InfoCircleOutlined />
+        icon: <InfoCircleOutlined />,
+        children: [
+            {
+                key: "about-card",
+                label: "",
+                popupRender: () => {
+                    return (
+                        <Card size="large">
+                            <a
+                                href={GITHUB_PAGE}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                About this project
+                            </a>
+                        </Card>
+                    )
+                }
+            }
+        ],
     }
 ]
 
-export default menu
+const menuItems = (items = menu) =>
+    items.map(item => ({
+        key: item.key,
+        icon: item.icon,
+        title: item.label,
+        label:
+            item.children?.length > 0 ? (
+                <span>{item.label}</span>
+            ) : (item.link?.length > 0 ? (
+                <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {item.label}
+                </a>) : item.label),
+        children:
+            item.children?.length > 0 ? menuItems(item.children) : []
+    }))
+
+const MainMenu = () => <Menu mode="vertical" items={menuItems()} />
+
+export default MainMenu

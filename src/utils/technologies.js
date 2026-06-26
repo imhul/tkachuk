@@ -3,19 +3,19 @@ export const technologies = {
         title: "Favorite Tools",
         list: [
             {
-                id: "React",
+                id: "favorite-react",
                 link: "https://reactjs.org/"
             },
             {
-                id: "Zustand",
+                id: "favorite-zustand",
                 link: "https://zustand.docs.pmnd.rs/learn/getting-started/introduction"
             },
             {
-                id: "Tauri",
+                id: "favorite-tauri",
                 link: "https://tauri.app/"
             },
             {
-                id: "Pixi.js",
+                id: "favorite-pixi",
                 link: "http://pixijs.com"
             }
         ]
@@ -36,7 +36,7 @@ export const technologies = {
                 link: "https://openai.com/uk-UA/codex/"
             },
             {
-                id: "OpenAI API",
+                id: "OpenAI",
                 link: "https://platform.openai.com/"
             }
         ]
@@ -62,23 +62,23 @@ export const technologies = {
         title: "Web Frameworks",
         list: [
             {
-                id: "SvelteKit",
+                id: "wf-sveltekit",
                 link: "https://kit.svelte.dev/"
             },
             {
-                id: "Next.js",
+                id: "wf-nextjs",
                 link: "https://nextjs.org/"
             },
             {
-                id: "Gatsby",
+                id: "wf-gatsby",
                 link: "https://www.gatsbyjs.com/"
             },
             {
-                id: "Sapper",
+                id: "wf-sapper",
                 link: "https://sapper.svelte.dev/"
             },
             {
-                id: "Phaser.js",
+                id: "wf-phaser",
                 link: "https://phaser.io/"
             }
         ]
@@ -87,35 +87,35 @@ export const technologies = {
         title: "Libraries",
         list: [
             {
-                id: "React",
+                id: "library-react",
                 link: "https://reactjs.org/"
             },
             {
-                id: "Svelte",
+                id: "library-svelte",
                 link: "https://svelte.dev/"
             },
             {
-                id: "Redux",
+                id: "library-redux",
                 link: "https://redux.js.org/"
             },
             {
-                id: "MobX",
+                id: "library-mobx",
                 link: "https://mobx.js.org/"
             },
             {
-                id: "Mobx-state-tree",
+                id: "library-mobx-state-tree",
                 link: "https://mobx-state-tree.js.org/"
             },
             {
-                id: "Pixi.js",
+                id: "library-pixi.js",
                 link: "http://pixijs.com"
             },
             {
-                id: "Zustand",
+                id: "library-zustand",
                 link: "https://zustand.docs.pmnd.rs/learn/getting-started/introduction"
             },
             {
-                id: "socket.io",
+                id: "library-socket.io",
                 link: "https://socket.io/"
             }
         ]
@@ -552,7 +552,7 @@ export const technologies = {
                 link: "https://www.netlify.com/"
             },
             {
-                id: "Heroku",
+                id: "Heroku-backend",
                 link: "https://dashboard.heroku.com/apps/"
             },
             {

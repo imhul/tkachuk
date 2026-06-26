@@ -1,13 +1,10 @@
 // core
-import React, { memo, useState, useEffect, useCallback } from "react"
+import { memo, useState, useEffect, useCallback } from "react"
 import { useDispatch, useSelector } from "react-redux"
-// utils
-import menu from "../../utils/menu"
 // components
 import {
     Row,
     Col,
-    Menu,
     Card,
     Drawer,
     Divider,
@@ -21,6 +18,7 @@ import {
     CloseCircleOutlined,
     QuestionCircleOutlined
 } from "@ant-design/icons"
+import MainMenu from "./Menu"
 // utils
 import translate from "../../utils/translations"
 import { LANG_OPTIONS, GITHUB_PAGE } from "../../utils/config"
@@ -30,12 +28,6 @@ const Title = Typography.Title
 const Toolbar = memo(() => {
     const { lang, isMenuOpen } = useSelector(s => s.ui)
     const dispatch = useDispatch()
-
-    const menuItems = menu.map(item => ({
-        key: item.key,
-        icon: item.icon,
-        label: <span>{item.key}</span>
-    }))
 
     return (
         <div className="Toolbar">
@@ -63,8 +55,7 @@ const Toolbar = memo(() => {
                     })
                 }
             >
-                <Divider>{translate(lang, "menu_heading")}</Divider>
-                <Menu mode="vertical" items={menuItems} />
+                <MainMenu />
 
                 <Divider>{translate(lang, "lang_title")}</Divider>
                 <Segmented

@@ -10,17 +10,17 @@
         "url": "https://github.com/imhul/tkachuk"
     },
     "email": "blashirk@gmail.com",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "scripts": {
-        "format": "prettier --write --plugin-search-dir=. .",
+        "formatt": "prettier --write --plugin-search-dir=. .",
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "lint": "stylelint \"src/**/*.scss\" --fix"
+        "lint": "stylelint \"src/**/*.scss\" --fix",
+        "prod": "prettier --write --plugin-search-dir=. . & stylelint \"src/**/*.scss\" --fix"
     },
     "dependencies": {
         "@ant-design/icons": "^6.2.5",
-        "@firefox-devtools/react-contextmenu": "^5.2.4",
         "@fontsource/open-sans": "^5.0.1",
         "@reduxjs/toolkit": "^2.12.0",
         "@types/react": "^19.2.17",
@@ -28,14 +28,11 @@
         "@vitejs/plugin-react": "^6.0.3",
         "antd": "^6.4.4",
         "autoprefixer": "^10.4.14",
-        "axios": "^1.4.0",
         "github-markdown-css": "^5.8.1",
         "postcss": "^8.5.6",
         "prettier": "^3.8.4",
-        "prop-types": "^15.8.1",
         "react": "^19.2.7",
         "react-dom": "^19.2.7",
-        "react-gravatar": "^2.6.3",
         "react-markdown": "^10.1.0",
         "react-redux": "^9.3.0",
         "redux": "^5.0.1",
@@ -46,7 +43,6 @@
         "stylelint-config-standard": "^40.0.0",
         "stylelint-config-standard-scss": "^17.0.0",
         "stylelint-scss": "^7.2.0",
-        "uuid": "^14.0.1",
         "vite": "^8.1.0"
     },
     "browserslist": "> 0.5%, last 2 versions, not dead",
