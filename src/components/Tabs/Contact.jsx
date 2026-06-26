@@ -1,17 +1,17 @@
 // core
-import React, { memo } from 'react';
-import { useSelector } from 'react-redux';
+import React, { memo } from "react"
+import { useSelector } from "react-redux"
 // components
-import { Row, Col } from 'antd';
-import { GithubOutlined, BarChartOutlined } from '@ant-design/icons';
-import ContactForm from '../Forms/ContactForm';
-import Captcha from '../Captcha';
+import { Row, Col } from "antd"
+import { GithubOutlined, BarChartOutlined } from "@ant-design/icons"
+import ContactForm from "../Forms/ContactForm"
+import Captcha from "../Captcha"
 // utils
-import translate from '../../utils/translations';
-import { GITHUB_PAGE } from '../../utils/config';
+import translate from "../../utils/translations"
+import { GITHUB_PAGE } from "../../utils/config"
 
 const Contact = memo(() => {
-    const { lang } = useSelector(s => s.ui);
+    const { lang } = useSelector(s => s.ui)
 
     return (
         <div className="Contact content">
@@ -27,9 +27,7 @@ const Contact = memo(() => {
                     xs={24}
                     className="mb-20 align-left mobile-center"
                 >
-                    <h3>
-                        {translate(lang, 'cooperation_ready')}
-                    </h3>
+                    <h3>{translate(lang, "cooperation_ready")}</h3>
                 </Col>
 
                 <Col
@@ -40,7 +38,7 @@ const Contact = memo(() => {
                     <a
                         href={GITHUB_PAGE}
                         className="link"
-                        title={`${translate(lang, 'github')}`}
+                        title={`${translate(lang, "github")}`}
                         target="_blank"
                     >
                         <GithubOutlined /> github
@@ -50,7 +48,7 @@ const Contact = memo(() => {
                 <ContactForm />
             </Row>
         </div>
-    );
-});
+    )
+})
 
-export default Contact;
+export default Contact

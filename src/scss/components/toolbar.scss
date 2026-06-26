@@ -9,7 +9,9 @@
 }
 
 .Toolbar {
-    transition: width 0.35s ease-in-out, height 0.35s ease-in-out,
+    transition:
+        width 0.35s ease-in-out,
+        height 0.35s ease-in-out,
         box-shadow 0.35s ease-in-out;
     position: absolute;
     top: rem(10);

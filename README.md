@@ -10,30 +10,30 @@ Based on [`create-react-app-redux`](https://github.com/notrab/create-react-app-r
 
 **What's inside?**
 
--   **Frontend:**
-    -   `react` v19
-    -   `redux`
-    -   `antd`
--   **Backend:**
-    -   `netlify`
-    -   `@netlify/functions`
-    -   `undici`
-    -   `reCapcha` proxy server
-    -   Telegram bot
-    -   Email sending with `nodemailer` + `gmail`
-    -   `mongoDB` API
-    -   Cookies
-    -   JWT with `jsonwebtoken`
+- **Frontend:**
+    - `react` v19
+    - `redux`
+    - `antd`
+- **Backend:**
+    - `netlify`
+    - `@netlify/functions`
+    - `undici`
+    - `reCapcha` proxy server
+    - Telegram bot
+    - Email sending with `nodemailer` + `gmail`
+    - `mongoDB` API
+    - Cookies
+    - JWT with `jsonwebtoken`
 
 **Roadmap**
 
--   **Frontend:**
-    -   `login/logout/register/forgot password/change password` forms
-    -   `Redux Persist` [docs](https://github.com/rt2zz/redux-persist)
--   **Backend:**
-    -   OAuth
-    -   trello API
-    -   supabase API
-    -   feathersjs + private server
+- **Frontend:**
+    - `login/logout/register/forgot password/change password` forms
+    - `Redux Persist` [docs](https://github.com/rt2zz/redux-persist)
+- **Backend:**
+    - OAuth
+    - trello API
+    - supabase API
+    - feathersjs + private server
 
 Try the published app [here](https://tkachuk-zakhar.netlify.app/)

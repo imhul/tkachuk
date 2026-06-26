@@ -1,9 +1,9 @@
-import { getMongoUserUpdate } from './api';
-import { API_ACTIONS } from './config';
+import { getMongoUserUpdate } from "./api"
+import { API_ACTIONS } from "./config"
 
 function userUpdate(user, lang, safe) {
     async function update() {
-        if (!safe && !lang && !user) return;
+        if (!safe && !lang && !user) return
 
         const {
             _id,
@@ -14,7 +14,7 @@ function userUpdate(user, lang, safe) {
             isAuth,
             isRobot,
             ...rest
-        } = user;
+        } = user
 
         try {
             const connected = await getMongoUserUpdate(
@@ -28,18 +28,18 @@ function userUpdate(user, lang, safe) {
                     })
                 )}`,
                 lang
-            );
+            )
             console.warn(
                 !connected.ok
-                    ? '::: User update NOT sended! :::'
-                    : '::: User update sended! :::'
-            );
+                    ? "::: User update NOT sended! :::"
+                    : "::: User update sended! :::"
+            )
         } catch (error) {
-            console.error('::: User update ERROR! :::', error);
+            console.error("::: User update ERROR! :::", error)
         }
     }
 
-    update();
+    update()
 }
 
-export default userUpdate;
+export default userUpdate

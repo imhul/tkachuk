@@ -1,562 +1,639 @@
-export const technologies = [
-    {
-        id: 'SvelteKit',
-        list: 'fw',
-        link: 'https://kit.svelte.dev/'
-    },
-    {
-        id: 'Sapper',
-        list: 'fw',
-        link: 'https://sapper.svelte.dev/'
-    },
-    {
-        id: 'Getsby',
-        list: 'fw',
-        link: 'https://www.gatsbyjs.com/'
-    },
-    {
-        id: 'Next.js',
-        list: 'fw',
-        link: 'https://nextjs.org/'
-    },
-    {
-        id: 'Svelte',
-        list: 'library',
-        link: 'https://svelte.dev/'
-    },
-    {
-        id: 'Parcel',
-        list: 'bundler',
-        link: 'https://parceljs.org/'
-    },
-    {
-        id: 'Vite',
-        list: 'bundler',
-        link: 'https://vitejs.dev/'
-    },
-    {
-        id: 'Sapper',
-        list: 'bundler',
-        link: 'https://sapper.svelte.dev/'
-    },
-    {
-        id: 'React-Scripts',
-        list: 'bundler',
-        link: 'https://www.npmjs.com/package/react-scripts'
-    },
-    {
-        id: 'React',
-        list: 'library',
-        link: 'https://reactjs.org/'
-    },
-    {
-        id: 'Redux',
-        list: 'library',
-        link: 'https://redux.js.org/'
-    },
-    {
-        id: 'MobX',
-        list: 'library',
-        link: 'https://mobx.js.org/'
-    },
-    {
-        id: 'Ant Design',
-        list: 'cssfw',
-        link: 'https://ant.design/'
-    },
-    {
-        id: 'npm',
-        list: 'packmen',
-        link: 'https://www.npmjs.com/'
-    },
-    {
-        id: 'pnpm',
-        list: 'packmen',
-        link: 'https://pnpm.io/'
-    },
-    {
-        id: 'npx',
-        list: 'packmen',
-        link: 'https://github.com/npm/npx'
-    },
-    {
-        id: 'yarn',
-        list: 'packmen',
-        link: 'https://yarnpkg.com/'
-    },
-    {
-        id: 'Materialize',
-        list: 'cssfw',
-        link: 'https://materializecss.com/'
-    },
-    {
-        id: 'UIKit',
-        list: 'cssfw',
-        link: 'https://getuikit.com/'
-    },
-    {
-        id: 'shadcn/ui',
-        list: 'cssfw',
-        link: 'https://ui.shadcn.com/'
-    },
-    {
-        id: 'Bootstrap',
-        list: 'cssfw',
-        link: 'https://getbootstrap.com/'
-    },
-    {
-        id: 'Tailwind',
-        list: 'cssfw',
-        link: 'https://tailwindcss.com/'
-    },
-    {
-        id: 'JavaScript, ES2021',
-        list: 'lang',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
-    },
-    {
-        id: 'TypeScript',
-        list: 'lang',
-        link: 'https://www.typescriptlang.org/'
-    },
-    {
-        id: 'CJS',
-        list: 'lang',
-        link: 'https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm'
-    },
-    {
-        id: 'ESM',
-        list: 'lang',
-        link: 'https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm'
-    },
-    {
-        id: 'mJS',
-        list: 'lang',
-        link: 'https://github.com/cesanta/mjs'
-    },
-    {
-        id: 'HTML5',
-        list: 'lang',
-        link: 'https://html.spec.whatwg.org/multipage/'
-    },
-    {
-        id: 'JSX',
-        list: 'lang',
-        link: 'https://reactjs.org/docs/introducing-jsx.html'
-    },
-    {
-        id: 'SASS, SCSS',
-        list: 'lang',
-        link: 'https://sass-lang.com/'
-    },
-    {
-        id: 'CSS 3',
-        list: 'lang',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
-    },
-    {
-        id: 'PostCSS',
-        list: 'lang',
-        link: 'https://postcss.org/'
-    },
-    {
-        id: 'LESS',
-        list: 'lang',
-        link: 'https://lesscss.org/'
-    },
-    {
-        id: 'XML, YAML',
-        list: 'lang',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction'
-    },
-    {
-        id: 'TOML',
-        list: 'lang',
-        link: 'https://github.com/toml-lang/toml'
-    },
-    {
-        id: 'MJML',
-        list: 'lang',
-        link: 'https://mjml.io/'
-    },
-    {
-        id: 'JSON, JSON-LD',
-        list: 'lang',
-        link: 'https://www.json.org/'
-    },
-    {
-        id: 'MDX, MD',
-        list: 'lang',
-        link: 'https://mdxjs.com/'
-    },
-    {
-        id: 'OpenAI API',
-        list: 'api',
-        link: 'https://platform.openai.com/'
-    },
-    {
-        id: 'Node API',
-        list: 'api',
-        link: 'https://nodejs.org/docs/latest/api/'
-    },
-    {
-        id: 'Web API',
-        list: 'api',
-        link: 'https://developer.mozilla.org/en-US/docs/Web/API'
-    },
-    {
-        id: 'RESTful Web API',
-        list: 'api',
-        link: 'https://restfulapi.net/'
-    },
-    {
-        id: 'Google Maps API',
-        list: 'api',
-        link: 'https://developers.google.com/maps/documentation/'
-    },
-    {
-        id: 'YouTube Data API',
-        list: 'api',
-        link: 'https://developers.google.com/youtube/v3/'
-    },
-    {
-        id: 'Instagram API',
-        list: 'api',
-        link: 'https://developers.facebook.com/docs/instagram-api/'
-    },
-    {
-        id: 'Telegram API',
-        list: 'api',
-        link: 'https://core.telegram.org/'
-    },
-    {
-        id: 'Viber API',
-        list: 'api',
-        link: 'https://developers.viber.com/docs/api/rest-bot-api/'
-    },
-    {
-        id: 'reCaptcha API',
-        list: 'api',
-        link: 'https://developers.google.com/recaptcha/intro'
-    },
-    {
-        id: 'Photoshop',
-        list: 'design',
-        link: 'https://www.adobe.com/products/photoshop.html'
-    },
-    {
-        id: 'Zeplin',
-        list: 'design',
-        link: 'https://zeplin.io/'
-    },
-    {
-        id: 'Avocode',
-        list: 'design',
-        link: 'https://avocode.com/'
-    },
-    {
-        id: 'Figma',
-        list: 'design',
-        link: 'https://figma.com/'
-    },
-    {
-        id: 'Sketch',
-        list: 'design',
-        link: 'https://www.sketch.com/'
-    },
-    {
-        id: 'Atlassian JIRA',
-        list: 'track',
-        link: 'https://jira.atlassian.com/'
-    },
-    {
-        id: 'Trello',
-        list: 'track',
-        link: 'https://trello.com/'
-    },
-    {
-        id: 'GitHub',
-        list: 'git',
-        link: 'https://github.com/'
-    },
-    {
-        id: 'GitLab',
-        list: 'git',
-        link: 'https://gitlab.com/'
-    },
-    {
-        id: 'Bitbucket',
-        list: 'git',
-        link: 'https://bitbucket.org/'
-    },
-    {
-        id: 'Tortoise SVN',
-        list: 'git',
-        link: 'https://tortoisesvn.net/'
-    },
-    {
-        id: 'VS Code',
-        list: 'ide',
-        link: 'https://code.visualstudio.com/'
-    },
-    {
-        id: 'Intellij IDEA',
-        list: 'ide',
-        link: 'https://www.jetbrains.com/idea/'
-    },
-    {
-        id: 'WebStorm',
-        list: 'ide',
-        link: 'https://www.jetbrains.com/webstorm/'
-    },
-    {
-        id: 'Search Console',
-        list: 'seo',
-        link: 'https://search.google.com/'
-    },
-    {
-        id: 'Google Analytics',
-        list: 'seo',
-        link: 'https://analytics.google.com/'
-    },
-    {
-        id: 'microdata',
-        list: 'seo',
-        link: 'https://schema.org/'
-    },
-    {
-        id: 'metadata',
-        list: 'seo',
-        link: 'https://gist.github.com/whitingx/3840905'
-    },
-    {
-        id: 'Joomla',
-        list: 'cms',
-        link: 'https://www.joomla.org/'
-    },
-    {
-        id: 'Wordpress',
-        list: 'cms',
-        link: 'https://wordpress.com/'
-    },
-    {
-        id: 'Pimcore',
-        list: 'cms',
-        link: 'https://pimcore.com/'
-    },
-    {
-        id: 'react-router-hash-link',
-        list: 'other',
-        link: 'https://github.com/rafgraph/react-router-hash-link'
-    },
-    {
-        id: 'react-redux-form',
-        list: 'other',
-        link: 'https://github.com/davidkpiano/react-redux-form'
-    },
-    {
-        id: 'react-hot-loader',
-        list: 'other',
-        link: 'https://gaearon.github.io/react-hot-loader/getstarted/'
-    },
-    {
-        id: 'react-router',
-        list: 'other',
-        link: 'https://reactrouter.com/'
-    },
-    {
-        id: 'react-gravatar',
-        list: 'other',
-        link: 'http://kyleamathews.github.io/react-gravatar/'
-    },
-    {
-        id: 'autoprefixer',
-        list: 'other',
-        link: '#'
-    },
-    {
-        id: 'rimraf',
-        list: 'other',
-        link: '#'
-    },
-    {
-        id: 'babel',
-        list: 'other',
-        link: '#'
-    },
-    {
-        id: 'react-recaptcha',
-        list: 'other',
-        link: 'https://github.com/appleboy/react-recaptcha'
-    },
-    {
-        id: 'react-router-dom',
-        list: 'other',
-        link: 'https://reactrouter.com/web/guides/quick-start'
-    },
-    {
-        id: 'right-now',
-        list: 'other',
-        link: 'https://github.com/hughsk/right-now'
-    },
-    {
-        id: 'reselect',
-        list: 'other',
-        link: 'https://github.com/reduxjs/reselect'
-    },
-    {
-        id: 're-reselect',
-        list: 'other',
-        link: 'https://github.com/toomuchdesign/re-reselect'
-    },
-    {
-        id: 'mdsvex',
-        list: 'other',
-        link: 'https://mdsvex.pngwn.io/'
-    },
-    {
-        id: 'recharts',
-        list: 'other',
-        link: 'https://recharts.org/'
-    },
-    {
-        id: 'redux-saga',
-        list: 'other',
-        link: 'https://redux-saga.js.org/'
-    },
-    {
-        id: 'redux-thunk',
-        list: 'other',
-        link: 'https://github.com/reduxjs/redux-thunk'
-    },
-    {
-        id: 'redux-logger',
-        list: 'other',
-        link: 'https://github.com/LogRocket/redux-logger'
-    },
-    {
-        id: 'history',
-        list: 'other',
-        link: 'https://github.com/ReactTraining/history'
-    },
-    {
-        id: 'helmet',
-        list: 'other',
-        link: 'https://helmetjs.github.io/'
-    },
-    {
-        id: 'axios',
-        list: 'other',
-        link: 'https://axios-http.com/docs/intro'
-    },
-    {
-        id: 'Pixi.js',
-        list: 'library',
-        link: 'http://pixijs.com'
-    },
-    {
-        id: 'Anime.js',
-        list: 'other',
-        link: 'https://animejs.com/'
-    },
-    {
-        id: 'Immutable.js',
-        list: 'other',
-        link: 'https://facebook.github.io/immutable-js/'
-    },
-    {
-        id: 'lodash',
-        list: 'other',
-        link: 'https://lodash.com/'
-    },
-    {
-        id: 'Highcharts.js',
-        list: 'other',
-        link: 'https://www.highcharts.com/'
-    },
-    {
-        id: 'Odometr.js',
-        list: 'other',
-        link: 'https://github.hubspot.com/odometer/docs/welcome/'
-    },
-    {
-        id: 'raf',
-        list: 'other',
-        link: 'https://github.com/chrisdickinson/raf'
-    },
-    {
-        id: 'Bitrix',
-        list: 'crm',
-        link: 'https://github.com/chrisdickinson/raf'
-    },
-    {
-        id: 'Netlify',
-        list: 'host',
-        link: 'https://www.netlify.com/'
-    },
-    {
-        id: 'netlify-functions',
-        list: 'back',
-        link: 'https://www.netlify.com/'
-    },
-    {
-        id: 'Heroku',
-        list: 'back',
-        link: 'https://dashboard.heroku.com/apps/'
-    },
-    {
-        id: 'Godaddy',
-        list: 'host',
-        link: 'https://www.godaddy.com/'
-    },
-    {
-        id: 'Heroku',
-        list: 'host',
-        link: 'https://heroku.com/'
-    },
-    {
-        id: 'undici',
-        list: 'back',
-        link: 'https://github.com/nodejs/undici'
-    },
-    {
-        id: 'postman',
-        list: 'back',
-        link: 'https://web.postman.co/'
-    },
-    {
-        id: 'node-fetch',
-        list: 'back',
-        link: ''
-    },
-    {
-        id: 'firebase',
-        list: 'host',
-        link: 'https://firebase.google.com/docs/hosting'
-    },
-    {
-        id: 'firebase-functions',
-        list: 'back',
-        link: 'https://firebase.google.com/docs/functions'
-    },
-    {
-        id: 'Cloudflare',
-        list: 'host',
-        link: 'https://www.cloudflare.com/'
-    },
-    {
-        id: 'Feathers',
-        list: 'back',
-        link: 'https://feathersjs.com/'
-    },
-    {
-        id: 'MongoDB',
-        list: 'db',
-        link: 'https://www.mongodb.com/'
-    },
-    {
-        id: 'Firestore',
-        list: 'db',
-        link: 'https://firebase.google.com/docs/firestore'
+export const technologies = {
+    favorite: {
+        title: "Favorite Tools",
+        list: [
+            {
+                id: "React",
+                link: "https://reactjs.org/"
+            },
+            {
+                id: "Zustand",
+                link: "https://zustand.docs.pmnd.rs/learn/getting-started/introduction"
+            },
+            {
+                id: "Tauri",
+                link: "https://tauri.app/"
+            },
+            {
+                id: "Pixi.js",
+                link: "http://pixijs.com"
+            }
+        ]
+    },
+    ai: {
+        title: "AI Tools",
+        list: [
+            {
+                id: "Github Copilot",
+                link: "https://github.com/features/copilot"
+            },
+            {
+                id: "Chat GPT",
+                link: "#"
+            },
+            {
+                id: "Codex",
+                link: "https://openai.com/uk-UA/codex/"
+            },
+            {
+                id: "OpenAI API",
+                link: "https://platform.openai.com/"
+            }
+        ]
+    },
+    apps: {
+        title: "Desctop & Mobile Apps",
+        list: [
+            {
+                id: "Electron",
+                link: "https://www.electronjs.org/"
+            },
+            {
+                id: "Tauri",
+                link: "https://tauri.app/"
+            },
+            {
+                id: "Capacitor.js",
+                link: "https://capacitorjs.com/"
+            }
+        ]
+    },
+    wf: {
+        title: "Web Frameworks",
+        list: [
+            {
+                id: "SvelteKit",
+                link: "https://kit.svelte.dev/"
+            },
+            {
+                id: "Next.js",
+                link: "https://nextjs.org/"
+            },
+            {
+                id: "Gatsby",
+                link: "https://www.gatsbyjs.com/"
+            },
+            {
+                id: "Sapper",
+                link: "https://sapper.svelte.dev/"
+            },
+            {
+                id: "Phaser.js",
+                link: "https://phaser.io/"
+            }
+        ]
+    },
+    library: {
+        title: "Libraries",
+        list: [
+            {
+                id: "React",
+                link: "https://reactjs.org/"
+            },
+            {
+                id: "Svelte",
+                link: "https://svelte.dev/"
+            },
+            {
+                id: "Redux",
+                link: "https://redux.js.org/"
+            },
+            {
+                id: "MobX",
+                link: "https://mobx.js.org/"
+            },
+            {
+                id: "Mobx-state-tree",
+                link: "https://mobx-state-tree.js.org/"
+            },
+            {
+                id: "Pixi.js",
+                link: "http://pixijs.com"
+            },
+            {
+                id: "Zustand",
+                link: "https://zustand.docs.pmnd.rs/learn/getting-started/introduction"
+            },
+            {
+                id: "socket.io",
+                link: "https://socket.io/"
+            }
+        ]
+    },
+    bundler: {
+        title: "Bundlers",
+        list: [
+            {
+                id: "Parcel",
+                link: "https://parceljs.org/"
+            },
+            {
+                id: "Vite",
+                link: "https://vitejs.dev/"
+            },
+            {
+                id: "Sapper",
+                link: "https://sapper.svelte.dev/"
+            },
+            {
+                id: "React-Scripts",
+                link: "https://www.npmjs.com/package/react-scripts"
+            }
+        ]
+    },
+    cssfw: {
+        title: "CSS Frameworks",
+        list: [
+            {
+                id: "Ant Design",
+                link: "https://ant.design/"
+            },
+            {
+                id: "Materialize",
+                link: "https://materializecss.com/"
+            },
+            {
+                id: "UIKit",
+                link: "https://getuikit.com/"
+            },
+            {
+                id: "shadcn/ui",
+                link: "https://ui.shadcn.com/"
+            },
+            {
+                id: "Bootstrap",
+                link: "https://getbootstrap.com/"
+            },
+            {
+                id: "Tailwind",
+                link: "https://tailwindcss.com/"
+            },
+            {
+                id: "JSS",
+                link: "https://cssinjs.org/"
+            }
+        ]
+    },
+    packmen: {
+        title: "Package Managers",
+        list: [
+            {
+                id: "npm",
+                link: "https://www.npmjs.com/"
+            },
+            {
+                id: "pnpm",
+                link: "https://pnpm.io/"
+            },
+            {
+                id: "npx",
+                link: "https://github.com/npm/npx"
+            },
+            {
+                id: "yarn",
+                link: "https://yarnpkg.com/"
+            }
+        ]
+    },
+    lang: {
+        title: "Languages",
+        list: [
+            {
+                id: "JavaScript",
+                link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            },
+            {
+                id: "TypeScript",
+                link: "https://www.typescriptlang.org/"
+            },
+            {
+                id: "CJS",
+                link: "https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm"
+            },
+            {
+                id: "ESM",
+                link: "https://dev.to/iggredible/what-the-heck-are-cjs-amd-umd-and-esm-ikm"
+            },
+            {
+                id: "mJS",
+                link: "https://github.com/cesanta/mjs"
+            },
+            {
+                id: "HTML5",
+                link: "https://html.spec.whatwg.org/multipage/"
+            },
+            {
+                id: "JSX",
+                link: "https://reactjs.org/docs/introducing-jsx.html"
+            },
+            {
+                id: "TSX",
+                link: "https://reactjs.org/docs/introducing-jsx.html"
+            },
+            {
+                id: "SASS, SCSS",
+                link: "https://sass-lang.com/"
+            },
+            {
+                id: "CSS 3",
+                link: "https://developer.mozilla.org/en-US/docs/Web/CSS"
+            },
+            {
+                id: "PostCSS",
+                link: "https://postcss.org/"
+            },
+            {
+                id: "LESS",
+                link: "https://lesscss.org/"
+            },
+            {
+                id: "XML, YAML",
+                link: "https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction"
+            },
+            {
+                id: "TOML",
+                link: "https://github.com/toml-lang/toml"
+            },
+            {
+                id: "MJML",
+                link: "https://mjml.io/"
+            },
+            {
+                id: "JSON, JSON-LD",
+                link: "https://www.json.org/"
+            },
+            {
+                id: "MDX, MD",
+                link: "https://mdxjs.com/"
+            }
+        ]
+    },
+    api: {
+        title: "APIs",
+        list: [
+            {
+                id: "OpenAI API",
+                link: "https://platform.openai.com/"
+            },
+            {
+                id: "Node API",
+                link: "https://nodejs.org/docs/latest/api/"
+            },
+            {
+                id: "Web API",
+                link: "https://developer.mozilla.org/en-US/docs/Web/API"
+            },
+            {
+                id: "RESTful Web API",
+                link: "https://restfulapi.net/"
+            },
+            {
+                id: "Google Maps API",
+                link: "https://developers.google.com/maps/documentation/"
+            },
+            {
+                id: "YouTube Data API",
+                link: "https://developers.google.com/youtube/v3/"
+            },
+            {
+                id: "Instagram API",
+                link: "https://developers.facebook.com/docs/instagram-api/"
+            },
+            {
+                id: "Telegram API",
+                link: "https://core.telegram.org/"
+            },
+            {
+                id: "Viber API",
+                link: "https://developers.viber.com/docs/api/rest-bot-api/"
+            },
+            {
+                id: "reCaptcha API",
+                link: "https://developers.google.com/recaptcha/intro"
+            }
+        ]
+    },
+    design: {
+        title: "Design Tools",
+        list: [
+            {
+                id: "Photoshop",
+                link: "https://www.adobe.com/products/photoshop.html"
+            },
+            {
+                id: "Zeplin",
+                link: "https://zeplin.io/"
+            },
+            {
+                id: "Avocode",
+                link: "https://avocode.com/"
+            },
+            {
+                id: "Figma",
+                link: "https://figma.com/"
+            },
+            {
+                id: "Sketch",
+                link: "https://www.sketch.com/"
+            }
+        ]
+    },
+    track: {
+        title: "Tracking Tools",
+        list: [
+            {
+                id: "Atlassian JIRA",
+                link: "https://jira.atlassian.com/"
+            },
+            {
+                id: "Trello",
+                link: "https://trello.com/"
+            }
+        ]
+    },
+    git: {
+        title: "Git Services",
+        list: [
+            {
+                id: "GitHub",
+                link: "https://github.com/"
+            },
+            {
+                id: "GitLab",
+                link: "https://gitlab.com/"
+            },
+            {
+                id: "Bitbucket",
+                link: "https://bitbucket.org/"
+            },
+            {
+                id: "Tortoise SVN",
+                link: "https://tortoisesvn.net/"
+            }
+        ]
+    },
+    ide: {
+        title: "IDEs",
+        list: [
+            {
+                id: "VS Code",
+                link: "https://code.visualstudio.com/"
+            },
+            {
+                id: "Intellij IDEA",
+                link: "https://www.jetbrains.com/idea/"
+            },
+            {
+                id: "WebStorm",
+                link: "https://www.jetbrains.com/webstorm/"
+            }
+        ]
+    },
+    seo: {
+        title: "SEO Tools",
+        list: [
+            {
+                id: "Search Console",
+                link: "https://search.google.com/"
+            },
+            {
+                id: "Google Analytics",
+                link: "https://analytics.google.com/"
+            },
+            {
+                id: "microdata",
+                link: "https://schema.org/"
+            },
+            {
+                id: "metadata",
+                link: "https://gist.github.com/whitingx/3840905"
+            }
+        ]
+    },
+    cms: {
+        title: "CMS",
+        list: [
+            {
+                id: "Joomla",
+                link: "https://www.joomla.org/"
+            },
+            {
+                id: "Wordpress",
+                link: "https://wordpress.com/"
+            },
+            {
+                id: "Pimcore",
+                link: "https://pimcore.com/"
+            }
+        ]
+    },
+    other: {
+        title: "Other Tools",
+        list: [
+            {
+                id: "react-router-hash-link",
+                link: "https://github.com/rafgraph/react-router-hash-link"
+            },
+            {
+                id: "react-redux-form",
+                link: "https://github.com/davidkpiano/react-redux-form"
+            },
+            {
+                id: "react-hot-loader",
+                link: "https://gaearon.github.io/react-hot-loader/getstarted/"
+            },
+            {
+                id: "react-router",
+                link: "https://reactrouter.com/"
+            },
+            {
+                id: "react-gravatar",
+                link: "http://kyleamathews.github.io/react-gravatar/"
+            },
+            {
+                id: "autoprefixer",
+                link: "#"
+            },
+            {
+                id: "rimraf",
+                link: "#"
+            },
+            {
+                id: "babel",
+                link: "#"
+            },
+            {
+                id: "react-recaptcha",
+                link: "https://github.com/appleboy/react-recaptcha"
+            },
+            {
+                id: "react-router-dom",
+                link: "https://reactrouter.com/web/guides/quick-start"
+            },
+            {
+                id: "right-now",
+                link: "https://github.com/hughsk/right-now"
+            },
+            {
+                id: "reselect",
+                link: "https://github.com/reduxjs/reselect"
+            },
+            {
+                id: "re-reselect",
+                link: "https://github.com/toomuchdesign/re-reselect"
+            },
+            {
+                id: "mdsvex",
+                link: "https://mdsvex.pngwn.io/"
+            },
+            {
+                id: "recharts",
+                link: "https://recharts.org/"
+            },
+            {
+                id: "redux-saga",
+                link: "https://redux-saga.js.org/"
+            },
+            {
+                id: "redux-thunk",
+                link: "https://github.com/reduxjs/redux-thunk"
+            },
+            {
+                id: "redux-logger",
+                link: "https://github.com/LogRocket/redux-logger"
+            },
+            {
+                id: "history",
+                link: "https://github.com/ReactTraining/history"
+            },
+            {
+                id: "helmet",
+                link: "https://helmetjs.github.io/"
+            },
+            {
+                id: "axios",
+                link: "https://axios-http.com/docs/intro"
+            },
+            {
+                id: "Anime.js",
+                link: "https://animejs.com/"
+            },
+            {
+                id: "Immutable.js",
+                link: "https://facebook.github.io/immutable-js/"
+            },
+            {
+                id: "lodash",
+                link: "https://lodash.com/"
+            },
+            {
+                id: "Highcharts.js",
+                link: "https://www.highcharts.com/"
+            },
+            {
+                id: "Odometr.js",
+                link: "https://github.hubspot.com/odometer/docs/welcome/"
+            },
+            {
+                id: "raf",
+                link: "https://github.com/chrisdickinson/raf"
+            }
+        ]
+    },
+    back: {
+        title: "Backend Tools",
+        list: [
+            {
+                id: "Node.js",
+                link: "https://nodejs.org/en/"
+            },
+            {
+                id: "netlify-functions",
+                link: "https://www.netlify.com/"
+            },
+            {
+                id: "Heroku",
+                link: "https://dashboard.heroku.com/apps/"
+            },
+            {
+                id: "undici",
+                link: "https://github.com/nodejs/undici"
+            },
+            {
+                id: "postman",
+                link: "https://web.postman.co/"
+            },
+            {
+                id: "node-fetch",
+                link: "#"
+            },
+            {
+                id: "firebase-functions",
+                link: "https://firebase.google.com/docs/functions"
+            },
+            {
+                id: "Feathers",
+                link: "https://feathersjs.com/"
+            }
+        ]
+    },
+    db: {
+        title: "Databases",
+        list: [
+            {
+                id: "MongoDB",
+                link: "https://www.mongodb.com/"
+            },
+            {
+                id: "Firestore",
+                link: "https://firebase.google.com/docs/firestore"
+            },
+            {
+                id: "Supabase",
+                link: "https://supabase.com/"
+            }
+        ]
+    },
+    host: {
+        title: "Hosting Services",
+        list: [
+            {
+                id: "Netlify",
+                link: "https://www.netlify.com/"
+            },
+            {
+                id: "Vercel",
+                link: "https://vercel.com/"
+            },
+            {
+                id: "Render",
+                link: "https://render.com/"
+            },
+            {
+                id: "Godaddy",
+                link: "https://www.godaddy.com/"
+            },
+            {
+                id: "Heroku",
+                link: "https://heroku.com/"
+            },
+            {
+                id: "firebase",
+                link: "https://firebase.google.com/docs/hosting"
+            },
+            {
+                id: "Cloudflare",
+                link: "https://www.cloudflare.com/"
+            }
+        ]
+    },
+    crm: {
+        title: "CRM Tools",
+        list: [
+            {
+                id: "Bitrix",
+                link: "#"
+            }
+        ]
     }
-];
+}

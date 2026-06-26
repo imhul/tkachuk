@@ -266,7 +266,9 @@ svg {
 
             &.ant-checkbox-checked {
                 .ant-checkbox-inner {
-                    background-color: var(--color-secondary) !important;
+                    background-color: var(
+                        --color-secondary
+                    ) !important;
                     border-color: var(--color-black) !important;
                 }
 
@@ -375,8 +377,6 @@ svg {
     position: relative;
     top: rem(2);
     outline: none !important;
-
-    /*  */
     font-family: lamp !important;
     speak: none;
     font-style: normal;

@@ -1,42 +1,40 @@
 // core
-import React, { memo, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { memo, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
 // assets
-import '../../../images/print.png';
-import '../../../images/logo.png';
+import "../../../images/print.png"
+import "../../../images/logo.png"
 
 const Home = memo(() => {
-    const { hero, heroStyle, lang } = useSelector(
-        state => state.ui
-    );
-    const dispatch = useDispatch();
+    const { hero, heroStyle, lang } = useSelector(state => state.ui)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const timeout2 = setTimeout(() => {
-            dispatch({ type: 'HERO_ANIMATE' });
-            clearTimeout(timeout2);
-        }, 1000);
+            dispatch({ type: "HERO_ANIMATE" })
+            clearTimeout(timeout2)
+        }, 1000)
         const timeout1 = setTimeout(() => {
             dispatch({
-                type: 'NOTIFY',
-                payload: { text: 'keep_clicking' }
-            });
-            clearTimeout(timeout1);
-        }, 6000);
+                type: "NOTIFY",
+                payload: { text: "keep_clicking" }
+            })
+            clearTimeout(timeout1)
+        }, 6000)
 
         return () => {
-            clearTimeout(timeout1);
-            clearTimeout(timeout2);
-        };
-    }, []);
+            clearTimeout(timeout1)
+            clearTimeout(timeout2)
+        }
+    }, [])
 
     const renderHero = hero[lang].map((symbol, index) => {
         return (
             <span key={index} className={`span-${index}`}>
                 {symbol}
             </span>
-        );
-    });
+        )
+    })
 
     return (
         <>
@@ -52,7 +50,7 @@ const Home = memo(() => {
                 </h1>
             </div>
         </>
-    );
-});
+    )
+})
 
-export default Home;
+export default Home

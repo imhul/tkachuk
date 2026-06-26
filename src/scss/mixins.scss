@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 // old media queries
 $media-x-large: 1367px;
@@ -53,7 +53,9 @@ $min-width-x-large: 1600px;
     $val: 0 0 0 $size $color;
 
     @for $i from 6 through 600 {
-        $val: #{$val}, #{$i}px 0 0 $size #{$color};
+        $val:
+            #{$val},
+            #{$i}px 0 0 $size #{$color};
     }
 
     @return $val;
@@ -66,7 +68,15 @@ $min-width-x-large: 1600px;
 }
 
 @mixin transition($duration: 0.35s, $ease: ease-in-out) {
-    transition: color $duration $ease 0s, background-color $duration $ease 0s, border-color $duration $ease 0s, fill $duration $ease 0s, filter $duration $ease 0s, stroke $duration $ease 0s, text-shadow $duration $ease 0s, box-shadow $duration $ease 0s;
+    transition:
+        color $duration $ease 0s,
+        background-color $duration $ease 0s,
+        border-color $duration $ease 0s,
+        fill $duration $ease 0s,
+        filter $duration $ease 0s,
+        stroke $duration $ease 0s,
+        text-shadow $duration $ease 0s,
+        box-shadow $duration $ease 0s;
 }
 
 // EXAMPLE USAGE:

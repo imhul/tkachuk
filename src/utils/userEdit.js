@@ -1,9 +1,9 @@
-import { getMongoUserUpdate } from './api';
-import { API_ACTIONS } from './config';
+import { getMongoUserUpdate } from "./api"
+import { API_ACTIONS } from "./config"
 
 function userEdit(query, lang, safe) {
     async function edit() {
-        if (!safe && !lang && !query) return;
+        if (!safe && !lang && !query) return
 
         try {
             const connected = await getMongoUserUpdate(
@@ -17,18 +17,18 @@ function userEdit(query, lang, safe) {
                     })
                 )}`,
                 lang
-            );
+            )
             console.warn(
                 !connected.ok
-                    ? '::: User edit NOT sended! :::'
-                    : '::: User edit sended! :::'
-            );
+                    ? "::: User edit NOT sended! :::"
+                    : "::: User edit sended! :::"
+            )
         } catch (error) {
-            console.error('::: User edit ERROR! :::', error);
+            console.error("::: User edit ERROR! :::", error)
         }
     }
 
-    edit();
+    edit()
 }
 
-export default userEdit;
+export default userEdit

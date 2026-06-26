@@ -1,16 +1,16 @@
-import { UI_UX_types as type } from '../constants/types';
+import { UI_UX_types as type } from "../constants/types"
 
 const initState = {
     show: false,
-    text: '',
+    text: "",
     options: {
-        type: 'info', // info, success, warning, error, loading
+        type: "info", // info, success, warning, error, loading
         duration: 4,
         style: {
-            marginTop: '5rem'
+            marginTop: "5rem"
         }
     }
-};
+}
 
 export default (state = initState, action) => {
     switch (action.type) {
@@ -22,16 +22,16 @@ export default (state = initState, action) => {
                     ...state.options,
                     ...action.payload.options
                 }
-            };
+            }
 
         case type.NOTIFY_DESTROY:
             return {
                 show: false,
-                text: '',
+                text: "",
                 options: state.options
-            };
+            }
 
         default:
-            return state;
+            return state
     }
-};
+}

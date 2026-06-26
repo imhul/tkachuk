@@ -1,11 +1,11 @@
-import { getMongoUserAdd } from './api';
-import { API_ACTIONS } from './config';
+import { getMongoUserAdd } from "./api"
+import { API_ACTIONS } from "./config"
 
 function userAdd(user, lang, safe) {
     async function add() {
-        if (!safe && !lang && !user) return;
+        if (!safe && !lang && !user) return
 
-        const { isAuth, isRobot, ...rest } = user;
+        const { isAuth, isRobot, ...rest } = user
 
         try {
             const connected = await getMongoUserAdd(
@@ -19,21 +19,21 @@ function userAdd(user, lang, safe) {
                     })
                 )}`,
                 lang
-            );
+            )
             console.warn(
                 !connected.ok
-                    ? '::: User add NOT sended! :::'
-                    : '::: User add sended! :::'
-            );
+                    ? "::: User add NOT sended! :::"
+                    : "::: User add sended! :::"
+            )
 
-            return true;
+            return true
         } catch (error) {
-            console.error('::: User add ERROR! :::', error);
-            return false;
+            console.error("::: User add ERROR! :::", error)
+            return false
         }
     }
 
-    return add();
+    return add()
 }
 
-export default userAdd;
+export default userAdd

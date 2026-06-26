@@ -1,49 +1,49 @@
 // utils
-import { message } from 'antd';
-import translate from '../utils/translations';
+import { message } from "antd"
+import translate from "../utils/translations"
 import {
     NOTIFY_OPTIONS,
     GET_CONFIG,
     GET_JSON_CONFIG
-} from '../utils/config';
-import { getErrorByCode } from '../utils/statuses';
+} from "../utils/config"
+import { getErrorByCode } from "../utils/statuses"
 
 const getContent = (response, lang) => {
     const status =
-        response.status ?? response.code ?? '::: no status :::';
+        response.status ?? response.code ?? "::: no status :::"
     return `${translate(
         lang,
-        'message_error'
+        "message_error"
     )} \nStatus: ${status} \nError: ${
         response.statusText ??
         response.errorMessage ??
         response.message ??
         response.error ??
-        '::: unknown error :::'
+        "::: unknown error :::"
     } \nDescription: ${
-        getErrorByCode(status) ?? '::: no description :::'
-    }`;
-};
+        getErrorByCode(status) ?? "::: no description :::"
+    }`
+}
 
 const request = async (url, config, lang) => {
-    const response = await fetch(url, config);
+    const response = await fetch(url, config)
     if (response.ok !== undefined) {
         if (
             response.status !== 200 &&
             response.code !== 200 &&
             response.statusCode !== 200
         ) {
-            const content = getContent(response, lang);
-            console.warn(content);
+            const content = getContent(response, lang)
+            console.warn(content)
             message.error({
                 ...NOTIFY_OPTIONS,
                 content
-            });
+            })
         }
-        return response;
+        return response
     }
-    const resultJson = await response.json();
-    const result = await JSON.parse(resultJson.data);
+    const resultJson = await response.json()
+    const result = await JSON.parse(resultJson.data)
 
     if (
         result.ok !== undefined &&
@@ -51,47 +51,47 @@ const request = async (url, config, lang) => {
         response.code !== 200 &&
         response.statusCode !== 200
     ) {
-        const content = getContent(response, lang);
-        console.warn(content);
+        const content = getContent(response, lang)
+        console.warn(content)
         message.error({
             ...NOTIFY_OPTIONS,
             content
-        });
+        })
     }
-    return result;
-};
+    return result
+}
 
 export const getRecaptcha = async (url, lang) => {
-    const result = await request(url, GET_CONFIG, lang);
-    return result.ok;
-};
+    const result = await request(url, GET_CONFIG, lang)
+    return result.ok
+}
 
 export const getTelegram = async (url, lang) => {
-    const result = await request(url, GET_CONFIG, lang);
-    return result;
-};
+    const result = await request(url, GET_CONFIG, lang)
+    return result
+}
 
 export const sendEmail = async (url, lang) => {
-    const result = await request(url, GET_JSON_CONFIG, lang);
-    return result;
-};
+    const result = await request(url, GET_JSON_CONFIG, lang)
+    return result
+}
 
 export const getMongoDB = async (url, lang) => {
-    const result = await request(url, GET_JSON_CONFIG, lang);
-    return result;
-};
+    const result = await request(url, GET_JSON_CONFIG, lang)
+    return result
+}
 
 export const getMongoUserUpdate = async (url, lang) => {
-    const result = await request(url, GET_JSON_CONFIG, lang);
-    return result;
-};
+    const result = await request(url, GET_JSON_CONFIG, lang)
+    return result
+}
 
 export const getMongoUserAdd = async (url, lang) => {
-    const result = await request(url, GET_JSON_CONFIG, lang);
-    return result;
-};
+    const result = await request(url, GET_JSON_CONFIG, lang)
+    return result
+}
 
 export const getCookies = async (url, lang) => {
-    const result = await request(url, GET_JSON_CONFIG, lang);
-    return result;
-};
+    const result = await request(url, GET_JSON_CONFIG, lang)
+    return result
+}

@@ -1,42 +1,42 @@
-import { memo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { memo } from "react"
+import { useSelector, useDispatch } from "react-redux"
 // utils
-import translate from '../../../utils/translations';
+import translate from "../../../utils/translations"
 // components
 // import { Helmet } from 'react-helmet';
-import { Collapse } from 'antd';
-import { Intro, Roadmap, Works, Contact } from '../../Tabs';
+import { Collapse } from "antd"
+import { Intro, Roadmap, Works, Contact } from "../../Tabs"
 import {
     MessageOutlined,
     RocketOutlined,
     PoweroffOutlined,
     CompassOutlined
-} from '@ant-design/icons';
+} from "@ant-design/icons"
 
-const { Panel } = Collapse;
+const { Panel } = Collapse
 
 const Folio = memo(() => {
-    const { active, lang } = useSelector(s => s.ui);
-    const dispatch = useDispatch();
+    const { active, lang } = useSelector(s => s.ui)
+    const dispatch = useDispatch()
     const renderTexts = [
         {
             icon: <PoweroffOutlined />,
-            key: 'intro',
+            key: "intro",
             text: <Intro />
         },
         {
             icon: <CompassOutlined />,
-            key: 'roadmap',
+            key: "roadmap",
             text: <Roadmap />
         },
         {
             icon: <RocketOutlined />,
-            key: 'works',
+            key: "works",
             text: <Works />
         },
         {
             icon: <MessageOutlined />,
-            key: 'contacts',
+            key: "contacts",
             text: <Contact />
         }
     ].map(load => ({
@@ -51,7 +51,7 @@ const Folio = memo(() => {
             </div>
         ),
         children: load.text
-    }));
+    }))
 
     return (
         <div className="Folio" tabIndex="1">
@@ -61,15 +61,15 @@ const Folio = memo(() => {
                 defaultActiveKey={active}
                 onChange={key =>
                     dispatch({
-                        type: 'TAB_MODIFY',
+                        type: "TAB_MODIFY",
                         payload: key
                     })
                 }
-                className={active ? 'active' : null}
+                className={active ? "active" : null}
                 items={renderTexts}
             />
         </div>
-    );
-});
+    )
+})
 
-export default Folio;
+export default Folio

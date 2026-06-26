@@ -1,12 +1,12 @@
 // core
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react"
+import { connect } from "react-redux"
 // utils
-import translate from '../../utils/translations';
-import { technologies } from '../../utils/technologies';
+import translate from "../../utils/translations"
+import { technologies } from "../../utils/technologies"
 // components
-import { Row, Col } from 'antd';
-import Gravatar from 'react-gravatar';
+import { Row, Col } from "antd"
+import Gravatar from "react-gravatar"
 // assets
 import {
     SassLogo,
@@ -18,22 +18,22 @@ import {
     MobxLogo,
     ReduxLogo,
     ReactLogo
-} from '../../images/logos';
+} from "../../images/logos"
 
 class Intro extends Component {
     render() {
-        const { lang } = this.props.ui;
+        const { lang } = this.props.ui
 
         return (
             <div className="Intro content">
                 <Row gutter={24}>
                     <Col span={24}>
-                        <h2>{translate(lang, 'believe')} ;)</h2>
+                        <h2>{translate(lang, "believe")} ;)</h2>
                     </Col>
 
                     <Col
                         span={24}
-                        style={{ height: '90px' }}
+                        style={{ height: "90px" }}
                         className="center"
                     >
                         <Gravatar
@@ -48,26 +48,26 @@ class Intro extends Component {
                         className="center"
                     >
                         <p className="name">
-                            {translate(lang, 'my_name')}
+                            {translate(lang, "my_name")}
                         </p>
                         <p className="italic">
-                            {translate(lang, 'front_dev')}
+                            {translate(lang, "front_dev")}
                         </p>
                     </Col>
 
                     <Col span={24}>
-                        <p>{translate(lang, 'tagline')}</p>
+                        <p>{translate(lang, "tagline")}</p>
                     </Col>
 
                     <Col span={24}>
                         <h2 className="margin">
-                            {translate(lang, 'what_i_do')}
+                            {translate(lang, "what_i_do")}
                         </h2>
 
-                        <p>{translate(lang, 'my_offer')}</p>
+                        <p>{translate(lang, "my_offer")}</p>
 
                         <h2 className="margin">
-                            {translate(lang, 'fav_tech')}
+                            {translate(lang, "fav_tech")}
                         </h2>
 
                         {/* LOGOS */}
@@ -146,14 +146,14 @@ class Intro extends Component {
                                         .filter(
                                             item =>
                                                 item.list ===
-                                                'library'
+                                                "library"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* CSS FRAMEWORKS */}
@@ -161,14 +161,14 @@ class Intro extends Component {
                                 <ul>
                                     {technologies
                                         .filter(
-                                            item => item.list === 'fw'
+                                            item => item.list === "fw"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* CSS FRAMEWORKS */}
@@ -177,14 +177,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'cssfw'
+                                                item.list === "cssfw"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* BACKEND */}
@@ -193,14 +193,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'back'
+                                                item.list === "back"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* HOSTING */}
@@ -209,14 +209,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'host'
+                                                item.list === "host"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* Data Bases */}
@@ -224,14 +224,14 @@ class Intro extends Component {
                                 <ul>
                                     {technologies
                                         .filter(
-                                            item => item.list === 'db'
+                                            item => item.list === "db"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                             </Col>
@@ -247,14 +247,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'lang'
+                                                item.list === "lang"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
 
@@ -264,14 +264,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'design'
+                                                item.list === "design"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* BUNDLERS */}
@@ -281,14 +281,14 @@ class Intro extends Component {
                                         .filter(
                                             item =>
                                                 item.list ===
-                                                'bundler'
+                                                "bundler"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* CMS */}
@@ -297,14 +297,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'cms'
+                                                item.list === "cms"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                             </Col>
@@ -320,14 +320,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'api'
+                                                item.list === "api"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
 
@@ -336,14 +336,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'track'
+                                                item.list === "track"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 <h3>SEO</h3>
@@ -351,14 +351,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'seo'
+                                                item.list === "seo"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
 
@@ -367,14 +367,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'ide'
+                                                item.list === "ide"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 <h3>Package Managers</h3>
@@ -383,14 +383,14 @@ class Intro extends Component {
                                         .filter(
                                             item =>
                                                 item.list ===
-                                                'packmen'
+                                                "packmen"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* CRM */}
@@ -399,14 +399,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'crm'
+                                                item.list === "crm"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                             </Col>
@@ -423,14 +423,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'other'
+                                                item.list === "other"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                                 {/* GIT */}
@@ -439,14 +439,14 @@ class Intro extends Component {
                                     {technologies
                                         .filter(
                                             item =>
-                                                item.list === 'git'
+                                                item.list === "git"
                                         )
                                         .map(item => {
                                             return (
                                                 <li key={item.id}>
                                                     {item.id}
                                                 </li>
-                                            );
+                                            )
                                         })}
                                 </ul>
                             </Col>
@@ -454,14 +454,14 @@ class Intro extends Component {
                     </Col>
                 </Row>
             </div>
-        );
+        )
     }
 }
 
 function mapStateToProps(state) {
     return {
         ui: state.ui
-    };
+    }
 }
 
-export default connect(mapStateToProps)(Intro);
+export default connect(mapStateToProps)(Intro)

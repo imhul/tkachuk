@@ -1,9 +1,9 @@
-import React, { useEffect, useReducer, useRef } from 'react';
+import React, { useEffect, useReducer, useRef } from "react"
 
 const FPS = () => {
     const [state, dispatch] = useReducer(
         state => {
-            const currentTime = Date.now();
+            const currentTime = Date.now()
             if (currentTime > state.prevTime + 1000) {
                 const nextFPS = [
                     ...new Array(
@@ -19,15 +19,15 @@ const FPS = () => {
                                 (currentTime - state.prevTime)
                         )
                     )
-                ];
+                ]
                 return {
                     len: Math.min(state.len + nextFPS.length, 70),
                     fps: [...state.fps, ...nextFPS].slice(-70),
                     frames: 1,
                     prevTime: currentTime
-                };
+                }
             } else {
-                return { ...state, frames: state.frames + 1 };
+                return { ...state, frames: state.frames + 1 }
             }
         },
         {
@@ -36,22 +36,22 @@ const FPS = () => {
             prevTime: Date.now(),
             fps: []
         }
-    );
+    )
 
-    const requestRef = useRef();
+    const requestRef = useRef()
     const tick = () => {
-        dispatch();
-        requestRef.current = requestAnimationFrame(tick);
-    };
+        dispatch()
+        requestRef.current = requestAnimationFrame(tick)
+    }
 
     useEffect(() => {
-        requestRef.current = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(requestRef.current);
-    }, []);
+        requestRef.current = requestAnimationFrame(tick)
+        return () => cancelAnimationFrame(requestRef.current)
+    }, [])
 
-    const { fps, len } = state;
+    const { fps, len } = state
 
-    return fps[len - 1];
-};
+    return fps[len - 1]
+}
 
-export default FPS;
+export default FPS

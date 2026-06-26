@@ -9,7 +9,8 @@
     .svg-loading {
         stroke-dasharray: 3279 3281;
         stroke-dashoffset: 3280;
-        animation: redraw-loading 7000ms linear 0ms infinite,
+        animation:
+            redraw-loading 7000ms linear 0ms infinite,
             fade-loading 7000ms linear 0ms infinite;
     }
 }

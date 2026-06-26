@@ -1,36 +1,36 @@
 // core
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
 // utils
-import translate from '../../utils/translations';
-import { message } from 'antd';
+import translate from "../../utils/translations"
+import { message } from "antd"
 
 const Notify = () => {
-    const { show, text, options } = useSelector(s => s.notify);
-    const [messageApi, contextHolder] = message.useMessage();
-    const [progress, setProgress] = useState(false);
-    const { lang } = useSelector(s => s.ui);
-    const dispatch = useDispatch();
+    const { show, text, options } = useSelector(s => s.notify)
+    const [messageApi, contextHolder] = message.useMessage()
+    const [progress, setProgress] = useState(false)
+    const { lang } = useSelector(s => s.ui)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (show && !progress) {
-            setProgress(true);
+            setProgress(true)
             messageApi
                 .open({
                     key: text,
-                    type: options.type || 'info',
+                    type: options.type || "info",
                     content: translate(lang, text),
                     duration: options.duration,
                     style: options.style
                 })
                 .then(() => {
-                    dispatch({ type: 'NOTIFY_DESTROY' });
-                    setProgress(false);
-                });
+                    dispatch({ type: "NOTIFY_DESTROY" })
+                    setProgress(false)
+                })
         }
-    }, [show, progress]);
+    }, [show, progress])
 
-    return <>{contextHolder}</>;
-};
+    return <>{contextHolder}</>
+}
 
-export default Notify;
+export default Notify
