@@ -40,6 +40,43 @@ const getTechsOfCategory = category =>
         )
     }))
 
+const contacts = {
+    email: "blashirk@gmail.com",
+    github: "https://github.com/imhul",
+    linkedin: "https://www.linkedin.com/in/tkachuk-zakhar/",
+    telegram: "https://t.me/blashirk",
+    whatsapp: "https://wa.me/380930113375"
+}
+
+const StringHidder = memo(({ subkey, label }) => {
+    const [hidden, setHidden] = useState(true)
+
+    const copyToClipboard = (text) => {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    console.info(`Copied to clipboard: ${text}`)
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err)
+                })
+        } else {
+            console.warn('Clipboard API not supported')
+        }
+    }
+
+    return (<Fragment key={subkey}>
+        <div onClick={() => {
+            if (!hidden) {
+                copyToClipboard(contacts[subkey])
+            }
+            setHidden(prev => !prev)
+        }}>
+            {hidden ? label : contacts[subkey]}
+        </div>
+    </Fragment>)
+})
+
 const menu = [
     {
         key: "hobby",
@@ -96,27 +133,27 @@ const menu = [
         children: [
             {
                 key: "email",
-                label: "",
+                label: "Email",
                 icon: <MailOutlined />,
             },
             {
                 key: "github",
-                label: "",
+                label: "GitHub",
                 icon: <GithubOutlined />,
             },
             {
                 key: "linkedin",
-                label: "",
+                label: "LinkedIn",
                 icon: <LinkedinOutlined />,
             },
             {
                 key: "telegram",
-                label: "",
+                label: <StringHidder subkey="telegram" label="Telegram" />,
                 icon: <SendOutlined />,
             },
             {
                 key: "whatsapp",
-                label: "",
+                label: <StringHidder subkey="whatsapp" label="WhatsApp" />,
                 icon: <WhatsAppOutlined />,
             },
         ]
@@ -158,65 +195,6 @@ const menu = [
     }
 ]
 
-const contacts = {
-    email: "blashirk@gmail.com",
-    github: "https://github.com/imhul",
-    linkedin: "https://www.linkedin.com/in/tkachuk-zakhar/",
-    telegram: "https://t.me/blashirk",
-    whatsapp: "https://wa.me/380930113375"
-}
-
-const StringHidder = memo(({ key }) => {
-    const [hidden, setHidden] = useState(true)
-
-    return (<Fragment key={key}>
-        <span onClick={() => setHidden(prev => !prev)}>
-            {hidden ? "Show" : contacts[key]}
-        </span>
-    </Fragment>)
-})
-
-const getPreferencesPopup = (children, dispatch) => {
-    return children.map((sub) => {
-        if (sub.key === "lang" && sub.children?.length > 0) {
-            return sub.children.map((subsub) => (
-                <div
-                    key={subsub.key}
-                    onClick={() => {
-                        // TODO: No eny reaction on click! WHYYY??
-                        console.info("getPreferencesPopup: ", { subsub })
-                        dispatch({ type: "TOGGLE_USER_LANG_SELECT" })
-                        dispatch({
-                            type: "SET_LANG",
-                            payload: subsub.key
-                        })
-                    }}
-                >
-                    {subsub.label}
-                </div>
-            ))
-        }
-
-        return null
-    })
-}
-
-const getPopup = (node, item, dispatch) => {
-    if (!item) return node
-
-    switch (item.key) {
-        case "hobby": return node
-        case "commercial": return node
-        case "technologies": return node
-        case "contacts": return item.children.map((sub) => {
-            return <StringHidder key={sub.key} />
-        })
-        case "preferences": return !item.children?.length ? node : getPreferencesPopup(item.children, dispatch)
-        case "donate": return node
-        default: return node
-    }
-}
-
 const menuItems = (items = menu) => {
     if (!items || !Array.isArray(items) || !items.length) return []
 
@@ -244,6 +222,7 @@ const MainMenu = () => {
     const { lang, isMenuOpen } = useSelector(s => s.ui)
     const dispatch = useDispatch()
     const minWidth = 1024
+    const menuData = menuItems()
 
     const onResize = () => {
         const currentBrowserWindowWidth = window.innerWidth
@@ -283,6 +262,25 @@ const MainMenu = () => {
         return null
     }
 
+    const onMenuClick = ({ key, keyPath }) => {
+        // TODO:
+        // 1. implement switch case for menu item clicks
+        // 2. add layout of technologies
+        // 3. add commercial projects
+
+        // if (!keyPath.includes("lang")) {
+        //     return
+        // }
+        console.info("Menu item clicked: ", key, keyPath)
+        // switch () {}
+
+        // dispatch({ type: "TOGGLE_USER_LANG_SELECT" })
+        // dispatch({
+        //     type: "SET_LANG",
+        //     payload: key
+        // })
+    }
+
     return (<div className="main-menu" style={{
         position: "fixed",
         top: "50%",
@@ -302,10 +300,22 @@ const MainMenu = () => {
             mode="inline"
             // mode="vertical"
             selectable={false}
-            items={menuItems()}
+            items={menuData}
+            onClick={onMenuClick}
             inlineCollapsed={!isMenuOpen}
             style={{ backgroundColor: "rgba(69, 103, 120, 0.8)" }}
-            popupRender={(node, info) => getPopup(node, findItemByKey(info.item.key, menuItems()), dispatch)}
+            popupRender={(node, info) => {
+                const item = findItemByKey(info.item.key, menuData)
+                if (!item) return node
+
+                switch (item.key) {
+                    case "contacts": return item.children.map(sub => (
+                        <StringHidder subkey={sub.key} label={sub.label} />
+                    ))
+                    default:
+                        return node
+                }
+            }}
         />
     </div>)
 }

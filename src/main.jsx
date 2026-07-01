@@ -28,7 +28,7 @@ createRoot(document.getElementById("root")).render(
                     },
                     components: {
                         Menu: {
-                            // TODO: backgroundColor: "transparent",
+                            // backgroundColor: "transparent",
                         }
                     }
                 }}
