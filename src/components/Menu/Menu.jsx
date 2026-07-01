@@ -176,48 +176,45 @@ const StringHidder = memo(({ key }) => {
     </Fragment>)
 })
 
-const getPreferencesPopup = (node, item, dispatch) => {
-    if (!item.children?.length) return node
-
-    const children = item.children.map((sub) => {
-        // console.info("getPreferencesPopup: ", {sub, item})
-        switch (sub.key) {
-            case "lang": return sub.props.children.map((subsub) => {
-                // console.info("getPreferencesPopup: ", { item, sub, subsub })
-                return <div key={subsub.key} onClick={() => {
-                    console.info("onClick: ", { item, sub, subsub })
-                    dispatch({ type: "TOGGLE_USER_LANG_SELECT" })
-                    dispatch({
-                        type: "SET_LANG",
-                        payload: subsub.key
-                    })
-                }}>
-                    {subsub.props.title}
+const getPreferencesPopup = (children, dispatch) => {
+    return children.map((sub) => {
+        if (sub.key === "lang" && sub.children?.length > 0) {
+            return sub.children.map((subsub) => (
+                <div
+                    key={subsub.key}
+                    onClick={() => {
+                        // TODO: No eny reaction on click! WHYYY??
+                        console.info("getPreferencesPopup: ", { subsub })
+                        dispatch({ type: "TOGGLE_USER_LANG_SELECT" })
+                        dispatch({
+                            type: "SET_LANG",
+                            payload: subsub.key
+                        })
+                    }}
+                >
+                    {subsub.label}
                 </div>
-            })
-            default: return node
+            ))
         }
-    })
 
-    return children
+        return null
+    })
 }
 
 const getPopup = (node, item, dispatch) => {
-    switch (item.eventKey) {
+    if (!item) return node
+
+    switch (item.key) {
         case "hobby": return node
         case "commercial": return node
         case "technologies": return node
         case "contacts": return item.children.map((sub) => {
             return <StringHidder key={sub.key} />
         })
-        case "preferences": return getPreferencesPopup(node, item, dispatch)
+        case "preferences": return !item.children?.length ? node : getPreferencesPopup(item.children, dispatch)
         case "donate": return node
         default: return node
     }
-}
-
-const popupRender = (node, { item, keys }, dispatch) => {
-    return getPopup(node, item, dispatch)
 }
 
 const menuItems = (items = menu) => {
@@ -271,6 +268,21 @@ const MainMenu = () => {
         }
     })
 
+    const findItemByKey = (key, items) => {
+        for (const item of items) {
+            if (item.key === key) {
+                return item
+            }
+            if (item.children) {
+                const found = findItemByKey(key, item.children)
+                if (found) {
+                    return found
+                }
+            }
+        }
+        return null
+    }
+
     return (<div className="main-menu" style={{
         position: "fixed",
         top: "50%",
@@ -291,9 +303,9 @@ const MainMenu = () => {
             // mode="vertical"
             selectable={false}
             items={menuItems()}
-            popupRender={popupRender}
             inlineCollapsed={!isMenuOpen}
             style={{ backgroundColor: "rgba(69, 103, 120, 0.8)" }}
+            popupRender={(node, info) => getPopup(node, findItemByKey(info.item.key, menuItems()), dispatch)}
         />
     </div>)
 }
