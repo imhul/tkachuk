@@ -1,7 +1,7 @@
 // core
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
-import { ConfigProvider } from "antd"
+import { ConfigProvider, theme } from "antd"
 import { Provider } from "react-redux"
 // store
 import store from "./redux/store"
@@ -16,7 +16,23 @@ import "./scss/index.scss"
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <Provider store={store}>
-            <ConfigProvider tooltip={{ unique: true }}>
+            <ConfigProvider
+                tooltip={{ unique: true }}
+                theme={{
+                    algorithm: theme.darkAlgorithm,
+                    token: {
+                        colorPrimary: "#456778",
+                        colorFillSecondary: "#fdd835",
+                        colorTextSecondary: "#fdd835",
+                        colorBorderSecondary: "#fdd835",
+                    },
+                    components: {
+                        Menu: {
+                            // TODO: backgroundColor: "transparent",
+                        }
+                    }
+                }}
+            >
                 <Output />
             </ConfigProvider>
         </Provider>

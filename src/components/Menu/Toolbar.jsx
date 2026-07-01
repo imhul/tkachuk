@@ -18,7 +18,6 @@ import {
     CloseCircleOutlined,
     QuestionCircleOutlined
 } from "@ant-design/icons"
-import MainMenu from "./Menu"
 // utils
 import translate from "../../utils/translations"
 import { LANG_OPTIONS, GITHUB_PAGE } from "../../utils/config"
@@ -55,7 +54,7 @@ const Toolbar = memo(() => {
                     })
                 }
             >
-                <MainMenu />
+                
 
                 <Divider>{translate(lang, "lang_title")}</Divider>
                 <Segmented

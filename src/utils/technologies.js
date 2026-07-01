@@ -195,7 +195,7 @@ export const technologies = {
             }
         ]
     },
-    lang: {
+    languages: {
         title: "Languages",
         list: [
             {
