@@ -24,7 +24,7 @@ createRoot(document.getElementById("root")).render(
                         colorPrimary: "#456778",
                         colorFillSecondary: "#fdd835",
                         colorTextSecondary: "#fdd835",
-                        colorBorderSecondary: "#fdd835",
+                        colorBorderSecondary: "#fdd835"
                     },
                     components: {
                         Menu: {

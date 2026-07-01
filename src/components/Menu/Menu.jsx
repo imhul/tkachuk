@@ -17,11 +17,15 @@ import {
     LinkedinOutlined,
     ExperimentOutlined,
     TranslationOutlined,
-    UnorderedListOutlined,
+    UnorderedListOutlined
 } from "@ant-design/icons"
 // utils
 import translate from "../../utils/translations"
-import { LANG_OPTIONS, GITHUB_PAGE } from "../../utils/config"
+import {
+    NOTIFY_OPTIONS,
+    LANG_OPTIONS,
+    GITHUB_PAGE
+} from "../../utils/config"
 import { technologies } from "../../utils/technologies"
 
 const techCategories = Object.keys(technologies)
@@ -50,31 +54,47 @@ const contacts = {
 
 const StringHidder = memo(({ subkey, label }) => {
     const [hidden, setHidden] = useState(true)
+    const dispatch = useDispatch()
 
-    const copyToClipboard = (text) => {
+    const copyToClipboard = text => {
         if (navigator.clipboard) {
-            navigator.clipboard.writeText(text)
+            navigator.clipboard
+                .writeText(text)
                 .then(() => {
-                    console.info(`Copied to clipboard: ${text}`)
+                    dispatch({
+                        type: "NOTIFY",
+                        payload: {
+                            text: "message_success_copied",
+                            options: { type: "success" }
+                        }
+                    })
                 })
-                .catch(err => {
-                    console.error('Failed to copy text: ', err)
+                .catch(() => {
+                    dispatch({
+                        type: "NOTIFY",
+                        payload: {
+                            text: "message_error_wrong",
+                            options: { type: "error" }
+                        }
+                    })
                 })
-        } else {
-            console.warn('Clipboard API not supported')
         }
     }
 
-    return (<Fragment key={subkey}>
-        <div onClick={() => {
-            if (!hidden) {
-                copyToClipboard(contacts[subkey])
-            }
-            setHidden(prev => !prev)
-        }}>
-            {hidden ? label : contacts[subkey]}
-        </div>
-    </Fragment>)
+    return (
+        <Fragment key={subkey}>
+            <div
+                onClick={() => {
+                    if (!hidden) {
+                        copyToClipboard(contacts[subkey])
+                    }
+                    setHidden(prev => !prev)
+                }}
+            >
+                {hidden ? label : contacts[subkey]}
+            </div>
+        </Fragment>
+    )
 })
 
 const menu = [
@@ -133,29 +153,46 @@ const menu = [
         children: [
             {
                 key: "email",
-                label: "Email",
-                icon: <MailOutlined />,
+                label: <StringHidder subkey="email" label="Email" />,
+                icon: <MailOutlined />
             },
             {
                 key: "github",
-                label: "GitHub",
-                icon: <GithubOutlined />,
+                label: (
+                    <StringHidder subkey="github" label="GitHub" />
+                ),
+                icon: <GithubOutlined />
             },
             {
                 key: "linkedin",
-                label: "LinkedIn",
-                icon: <LinkedinOutlined />,
+                label: (
+                    <StringHidder
+                        subkey="linkedin"
+                        label="LinkedIn"
+                    />
+                ),
+                icon: <LinkedinOutlined />
             },
             {
                 key: "telegram",
-                label: <StringHidder subkey="telegram" label="Telegram" />,
-                icon: <SendOutlined />,
+                label: (
+                    <StringHidder
+                        subkey="telegram"
+                        label="Telegram"
+                    />
+                ),
+                icon: <SendOutlined />
             },
             {
                 key: "whatsapp",
-                label: <StringHidder subkey="whatsapp" label="WhatsApp" />,
-                icon: <WhatsAppOutlined />,
-            },
+                label: (
+                    <StringHidder
+                        subkey="whatsapp"
+                        label="WhatsApp"
+                    />
+                ),
+                icon: <WhatsAppOutlined />
+            }
         ]
     },
     {
@@ -170,13 +207,13 @@ const menu = [
                 children: [
                     {
                         key: "english",
-                        label: "English",
+                        label: "English"
                     },
                     {
                         key: "ukrainian",
-                        label: "Українська",
+                        label: "Українська"
                     }
-                ],
+                ]
             }
         ]
     },
@@ -189,9 +226,9 @@ const menu = [
                 key: "buymeacoffee",
                 label: "Buymeacoffee",
                 link: "https://www.buymeacoffee.com/blashirkz",
-                icon: <CoffeeOutlined />,
+                icon: <CoffeeOutlined />
             }
-        ],
+        ]
     }
 ]
 
@@ -205,16 +242,21 @@ const menuItems = (items = menu) => {
         label:
             item.children?.length > 0 ? (
                 <span>{item.label}</span>
-            ) : (item.link?.length > 0 ? (
+            ) : item.link?.length > 0 ? (
                 <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     {item.label}
-                </a>) : item.label),
+                </a>
+            ) : (
+                item.label
+            ),
         children:
-            item.children?.length > 0 ? menuItems(item.children) : null
+            item.children?.length > 0
+                ? menuItems(item.children)
+                : null
     }))
 }
 
@@ -231,7 +273,10 @@ const MainMenu = () => {
                 type: "TOGGLE_TOOLBAR",
                 payload: false
             })
-        } else if (currentBrowserWindowWidth >= minWidth && !isMenuOpen) {
+        } else if (
+            currentBrowserWindowWidth >= minWidth &&
+            !isMenuOpen
+        ) {
             dispatch({
                 type: "TOGGLE_TOOLBAR",
                 payload: true
@@ -263,61 +308,75 @@ const MainMenu = () => {
     }
 
     const onMenuClick = ({ key, keyPath }) => {
-        // TODO:
-        // 1. implement switch case for menu item clicks
-        // 2. add layout of technologies
-        // 3. add commercial projects
-
-        // if (!keyPath.includes("lang")) {
-        //     return
-        // }
-        console.info("Menu item clicked: ", key, keyPath)
-        // switch () {}
-
-        // dispatch({ type: "TOGGLE_USER_LANG_SELECT" })
-        // dispatch({
-        //     type: "SET_LANG",
-        //     payload: key
-        // })
+        if (!keyPath.includes("lang")) return
+        dispatch({ type: "TOGGLE_USER_LANG_SELECT" })
+        dispatch({
+            type: "SET_LANG",
+            payload: key
+        })
     }
 
-    return (<div className="main-menu" style={{
-        position: "fixed",
-        top: "50%",
-        left: 0,
-        transform: "translateY(-50%)"
-    }}>
-        <Button
-            onClick={() => dispatch({
-                type: "TOGGLE_TOOLBAR",
-                payload: !isMenuOpen
-            })}
-            icon={isMenuOpen ? <MoreOutlined /> : <UnorderedListOutlined />}
-            style={{ margin: '0 0 0.5rem 1.5rem' }}
-        />
-
-        <Menu
-            mode="inline"
-            // mode="vertical"
-            selectable={false}
-            items={menuData}
-            onClick={onMenuClick}
-            inlineCollapsed={!isMenuOpen}
-            style={{ backgroundColor: "rgba(69, 103, 120, 0.8)" }}
-            popupRender={(node, info) => {
-                const item = findItemByKey(info.item.key, menuData)
-                if (!item) return node
-
-                switch (item.key) {
-                    case "contacts": return item.children.map(sub => (
-                        <StringHidder subkey={sub.key} label={sub.label} />
-                    ))
-                    default:
-                        return node
-                }
+    return (
+        <div
+            className="main-menu"
+            style={{
+                position: "fixed",
+                top: "50%",
+                left: 0,
+                transform: "translateY(-50%)"
             }}
-        />
-    </div>)
+        >
+            <Button
+                onClick={() =>
+                    dispatch({
+                        type: "TOGGLE_TOOLBAR",
+                        payload: !isMenuOpen
+                    })
+                }
+                icon={
+                    isMenuOpen ? (
+                        <MoreOutlined />
+                    ) : (
+                        <UnorderedListOutlined />
+                    )
+                }
+                style={{ margin: "0 0 0.5rem 1.5rem" }}
+            />
+
+            <Menu
+                mode="inline"
+                // mode="vertical"
+                selectable={false}
+                items={menuData}
+                onClick={onMenuClick}
+                inlineCollapsed={!isMenuOpen}
+                style={{ backgroundColor: "rgba(69, 103, 120, 0.8)" }}
+                popupRender={(node, info) => {
+                    const item = findItemByKey(
+                        info.item.key,
+                        menuData
+                    )
+                    if (!item) return node
+
+                    switch (item.key) {
+                        case "contacts":
+                            return item.children.map(sub => (
+                                <StringHidder
+                                    subkey={sub.key}
+                                    label={sub.label}
+                                />
+                            ))
+                        case "technologies":
+                            // TODO: add my commercial projects
+                            // TODO: add techs list flex layout to popup
+                            return node
+                        default:
+                            return node
+                    }
+                }}
+            />
+        </div>
+    )
 }
 
 export default MainMenu

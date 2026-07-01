@@ -21,10 +21,18 @@ const Output = () => {
 
     return (
         <Layout className="LayoutMain">
-            <Portal><Stats /></Portal>
-            <Portal><HowTo /></Portal>
-            <Portal><Notify /></Portal>
-            <Portal><MainMenu /></Portal>
+            <Portal>
+                <Stats />
+            </Portal>
+            <Portal>
+                <HowTo />
+            </Portal>
+            <Portal>
+                <Notify />
+            </Portal>
+            <Portal>
+                <MainMenu />
+            </Portal>
             <Layout className="Main">
                 <Content>
                     <Home />

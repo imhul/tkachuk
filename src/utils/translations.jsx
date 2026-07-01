@@ -105,6 +105,8 @@ const translations = {
         message_required_email: "Email is required",
         message_required_name: "Name is required",
         message_required_subject: "Subject is required",
+        message_success_copied:
+            "Text successfully copied to clipboard!",
         message_success_phone: "Phone number successfully copied!",
         message_success_email_copy:
             "Email address successfully copied!",
@@ -311,6 +313,7 @@ const translations = {
         message_required_email: "Введіть, будь ласка, email",
         message_required_name: "Введіть, будь ласка, ім`я",
         message_required_subject: "Оберіть, будь ласка, тему листа",
+        message_success_copied: "Текст успішно скопійовано!",
         message_success_phone: "Номер телефону успішно скопійовано!",
         message_success_email_copy: "Эл. адресу успішно скопійовано!",
         message_success: "Повідомлення успішно скопійовано!",
